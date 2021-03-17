@@ -5,7 +5,7 @@
 * 病院は登録している看護師へ直接面接オファーを出すことができます。
 * 看護師は職場のクチコミを見た上で直接病院へ応募、採用担当者とやりとりをすることができます。
 ## コンセプト
-紹介料が原因で失敗する転職活動を無くす。
+看護師の転職をよりスムーズかつ自由に。紹介料が原因で失敗する転職活動を無くします。
 ## バージョン情報
 * Ruby 2.6.5
 * Rails 5.2.4
@@ -29,8 +29,9 @@ https://docs.google.com/spreadsheets/d/1GNuPO7olvLH4ZETjHRP0FG9dkQDoHv9zzIits-GN
 https://docs.google.com/spreadsheets/d/1dxk13QyICr_PggPmxPIASJSJ_9eQzy0S41w53AKNyFo/edit#gid=0
 ## 画面ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/1FCHCs2at3CXkj4EIs9bKO_UpvWL00ZPAJR__R-R61oU/edit#gid=1593143460
-## 使用予定Gem
-* devise
-* ransack
-## 実装予定機能
-* AWS
+## 卒業課題要件
+* 就業Term内の技術
+devise
+AWS
+* カリキュラム外の技術
+ransack
