@@ -1,0 +1,19 @@
+<%= form_with(model: @job, local: true, url: choose_new_or_edit) do |form| %>
+  <% if @job.errors.any? %>
+    <h2><%= @job.errors.count %>件のエラーがあります。</h2>
+    <ul>
+    <% @job.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+  <%= form.label :法人名 %>
+  <%= form.text_field :name %>
+  <%= form.label :エリア %>
+  <%= form.text_field :area %>
+  <%= form.label :募集人数 %>
+  <%= form.text_field :people %>
+  <%= form.label :求人内容 %>
+  <%= form.text_field :content %>
+  <%= form.submit %>
+  <% end %>

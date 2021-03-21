@@ -1,13 +1,13 @@
 <h3>以下の内容で、送信する。</h3>
-<%= form_with(model: @rumor, local: true) do |form| %>
+<%= form_with(model: @job, local: true) do |form| %>
   <%= form.hidden_field :name %>
   <%= form.hidden_field :area %>
-  <%= form.hidden_field :season %>
+  <%= form.hidden_field :people %>
   <%= form.hidden_field :content %>
   <p>タイトル:<%= @rumor.name %></p>
   <p>本文:<%= @rumor.area %></p>
-  <p>働いていた時期:<%= @rumor.season %></p>
-  <p>クチコミ:<%= @rumor.content %></p>
+  <p>募集人数:<%= @rumor.people %></p>
+  <p>求人内容:<%= @rumor.content %></p>
   <%= form.submit  "登録する" %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>

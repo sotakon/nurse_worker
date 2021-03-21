@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'jobs/index'
+  resources :jobs
   resources :rumors do
     collection do
       post :confirm
