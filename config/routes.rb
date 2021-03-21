@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  devise_for :users
+  devise_for :corporations, controllers: {
+    sessions:      'corporations/sessions',
+    passwords:     'corporations/passwords',
+    registrations: 'corporations/registrations'
+  }
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
+  get "users/show" => "users#show"
   resources :jobs do
     collection do
       post :confirm
