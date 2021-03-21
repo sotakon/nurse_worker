@@ -13,6 +13,7 @@
     <td><%= rumor.season %></td>
     <td><%= rumor.content %></td>
     <td><%= link_to '詳細を確認する', rumor_path(rumor.id) %></td>
+    <td><%= link_to "クチコミを編集する", edit_rumor_path(rumor.id) %></td>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,19 @@
+<%= form_with(model: @rumor, local: true) do |form| %>
+  <% if @rumor.errors.any? %>
+    <h2><%= @rumor.errors.count %>件のエラーがあります。</h2>
+    <ul>
+    <% @rumor.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  <% end %>
+  <%= form.label :法人名 %>
+  <%= form.text_field :name %>
+  <%= form.label :エリア %>
+  <%= form.text_field :area %>
+  <%= form.label :働いていた時期 %>
+  <%= form.text_field :season %>
+  <%= form.label :クチコミ %>
+  <%= form.text_field :content %>
+  <%= form.submit %>
+  <% end %>
