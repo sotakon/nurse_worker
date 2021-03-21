@@ -1,5 +1,6 @@
 class RumorsController < ApplicationController
   before_action :set_rumor, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! 
   def index
     @rumors = Rumor.all
   end
