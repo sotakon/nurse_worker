@@ -56,5 +56,3 @@ private
     @job = Job.find(params[:id])
   end
 end
-
-end
