@@ -1,4 +1,5 @@
 <h1>クチコミ一覧</h1>
+<p><%= notice %></p>
 <table> 
   <tr>
     <th>法人名</th>
@@ -14,6 +15,7 @@
     <td><%= rumor.content %></td>
     <td><%= link_to '詳細を確認する', rumor_path(rumor.id) %></td>
     <td><%= link_to "クチコミを編集する", edit_rumor_path(rumor.id) %></td>
+    <td><%= link_to 'クチコミを削除する', rumor_path(rumor.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>

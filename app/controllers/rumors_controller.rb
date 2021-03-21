@@ -1,5 +1,5 @@
 class RumorsController < ApplicationController
-  before_action :set_rumor, only: [:show, :edit, :update]
+  before_action :set_rumor, only: [:show, :edit, :update, :destroy]
   def index
     @rumors = Rumor.all
   end
@@ -9,11 +9,17 @@ class RumorsController < ApplicationController
   end
 
   def create
-    @rumor = Rumor.new(rumor_params)
-    if @rumor.save
-      redirect_to rumors_path, notice: "クチコミを作成しました！"
-    else
-      render :new
+    def create
+      @rumor = Rumor.new(rumor_params)
+      if params[:back]
+        render :new
+      else
+        if @rumor.save
+          redirect_to rumors_path, notice: "クチコミを作成しました！"
+        else
+          render :new
+        end
+      end
     end
   end
 
@@ -29,6 +35,16 @@ class RumorsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @rumor.destroy
+    redirect_to rumors_path, notice:" クチコミを削除しました！"
+  end
+
+  def confirm
+    @rumor = Rumor.new(rumor_params)
+    render :new if @rumor.invalid?
   end
   
 private
