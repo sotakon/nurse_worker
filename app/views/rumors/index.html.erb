@@ -1,2 +1,19 @@
-<h1>Rumors#index</h1>
-<p>Find me in app/views/rumors/index.html.erb</p>
+<h1>クチコミ一覧</h1>
+<table> 
+  <tr>
+    <th>法人名</th>
+    <th>エリア</th>
+    <th>働いていた時期</th>
+    <th>クチコミ</th>
+  </tr>
+<% @rumors.each do |rumor| %>
+  <tr>
+    <td><%= rumor.name %></td>
+    <td><%= rumor.area %></td>
+    <td><%= rumor.season %></td>
+    <td><%= rumor.content %></td>
+    <td><%= link_to '詳細を確認する', rumor_path(rumor.id) %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to '新しくクチコミを投稿する', new_rumor_path %>
