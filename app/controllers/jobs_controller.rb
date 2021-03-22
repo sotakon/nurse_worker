@@ -25,6 +25,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(job_id: @job.id)
   end
 
   def edit
