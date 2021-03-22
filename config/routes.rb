@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
   root 'rumors#index'
   resources :favorites
+  resources :users
   resources :rumors do
     collection do
       post :confirm
