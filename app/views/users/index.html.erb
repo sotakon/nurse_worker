@@ -1,8 +1,8 @@
 <h1>看護師一覧</h1>
 <%= search_form_for @q do |f| %>
-  <%= f.label :name, "Keyword" %>
-  <%= f.search_field :name_cont %>
-  
+  <%= f.label :name, "ワード検索" %>
+  <%= f.search_field :name_or_area_or_introduction_cont %>
+
   <%= f.label :age %>
   <%= f.number_field :age_gteq %>以上〜
   <%= f.number_field :age_lt %>未満
@@ -21,6 +21,7 @@
     <td><%= user.name %></td>
     <td><%= user.area %></td>
     <td><%= user.age %></td>
+    <td><%= user.introduction %></td>
     <td><%= link_to '詳細を確認する', user_path(user.id) %></td>
   </tr>
 <% end %>
