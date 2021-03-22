@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   def index
     @jobs = Job.all
+    @corporations = Corporation.all
   end
   
   def new
@@ -10,7 +11,7 @@ class JobsController < ApplicationController
 
   def create
     def create
-      @job = Job.new(job_params)
+      @job = current_corporation.jobs.build(job_params)
       if params[:back]
         render :new
       else
@@ -43,13 +44,13 @@ class JobsController < ApplicationController
   end
 
   def confirm
-    @job = Job.new(job_params)
+    @job = current_corporation.jobs.build(job_params)
     render :new if @job.invalid?
   end
   
 private
   def job_params
-    params.require(:job).permit(:name, :area, :people, :content)
+    params.require(:job).permit(:name, :area, :people, :content, :corporation_id)
   end
 
   def set_job

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_122706) do
+ActiveRecord::Schema.define(version: 2021_03_22_060032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2021_03_21_122706) do
     t.integer "people"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "corporation_id"
+    t.index ["corporation_id"], name: "index_jobs_on_corporation_id"
   end
 
   create_table "rumors", force: :cascade do |t|
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(version: 2021_03_21_122706) do
     t.string "season"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_rumors_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,4 +80,6 @@ ActiveRecord::Schema.define(version: 2021_03_21_122706) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "jobs", "corporations"
+  add_foreign_key "rumors", "users"
 end

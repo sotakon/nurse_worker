@@ -1,5 +1,4 @@
 <h1>求人一覧</h1>
-<p><%= notice %></p>
 <table> 
   <tr>
     <th>法人名</th>
@@ -9,6 +8,7 @@
   </tr>
 <% @jobs.each do |job| %>
   <tr>
+    <td><%= job.corporation.name %></td>
     <td><%= job.name %></td>
     <td><%= job.area %></td>
     <td><%= job.people %></td>

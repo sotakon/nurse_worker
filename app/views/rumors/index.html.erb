@@ -8,6 +8,7 @@
   </tr>
 <% @rumors.each do |rumor| %>
   <tr>
+    <td><%= rumor.user.name %></td>
     <td><%= rumor.name %></td>
     <td><%= rumor.area %></td>
     <td><%= rumor.season %></td>

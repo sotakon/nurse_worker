@@ -1,8 +1,9 @@
 class RumorsController < ApplicationController
   before_action :set_rumor, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user! 
+  # before_action :authenticate_user! 
   def index
     @rumors = Rumor.all
+    @users = User.all
   end
   
   def new
@@ -11,7 +12,7 @@ class RumorsController < ApplicationController
 
   def create
     def create
-      @rumor = Rumor.new(rumor_params)
+      @rumor = current_user.rumors.build(rumor_params)
       if params[:back]
         render :new
       else
@@ -44,13 +45,13 @@ class RumorsController < ApplicationController
   end
 
   def confirm
-    @rumor = Rumor.new(rumor_params)
+    @rumor = current_user.rumors.build(rumor_params)
     render :new if @rumor.invalid?
   end
   
 private
   def rumor_params
-    params.require(:rumor).permit(:name, :area, :season, :content)
+    params.require(:rumor).permit(:name, :area, :season, :content, :user_id)
   end
 
   def set_rumor
