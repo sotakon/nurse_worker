@@ -2,7 +2,8 @@ class RumorsController < ApplicationController
   before_action :set_rumor, only: [:show, :edit, :update, :destroy]
   # before_action :authenticate_user! 
   def index
-    @rumors = Rumor.all
+    @q = Rumor.ransack(params[:q])
+    @rumors = @q.result(distinct: true)
     @users = User.all
   end
   

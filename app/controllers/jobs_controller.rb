@@ -1,7 +1,8 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
   def index
-    @jobs = Job.all
+    @q = Job.ransack(params[:q])
+    @jobs = @q.result(distinct: true)
     @corporations = Corporation.all
   end
   
