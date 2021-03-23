@@ -1,4 +1,4 @@
-<h1>about me</h1>
+<h1><%= @user.name %>のプロフィール</h1>
 
 <h3>ユーザー名</h3>
 <%= @user.name %>
@@ -12,6 +12,8 @@
 <%= @user.introduction%>
 <h3>アイコン</h3>
 <%= @user.icon %>
+<br>
+<%= link_to 'プロフィール編集', edit_user_registration_path %>
 <% if @favorite.present? %>
 <%= link_to 'お気に入り解除する', corporations_favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
 <% else %>

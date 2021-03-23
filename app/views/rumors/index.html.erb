@@ -32,3 +32,4 @@
 </table>
 <%= link_to '新しくクチコミを投稿する', new_rumor_path %>
 <%= link_to 'ゲストログイン（閲覧用）', rumors_guest_sign_in_path, method: :post %>
+<%= link_to '自分のプロフィール', user_path(current_user.id) %>
