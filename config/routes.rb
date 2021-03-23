@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
   root 'rumors#index'
+  post '/rumors/guest_sign_in', to: 'rumors#new_guest'
   resources :favorites
   resources :corporations_favorites
   resources :users
