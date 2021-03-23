@@ -21,13 +21,12 @@
     <td><%= job.area %></td>
     <td><%= job.people %>名</td>
     <td><%= job.content %></td>
-    <td><%= link_to '詳細を確認する', job_path(job.id) %></td>
-    <td><%= link_to '求人を編集する', edit_job_path(job.id) %></td>
-    <td><%= link_to '求人を削除する', job_path(job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+    <td><%= link_to '詳細', job_path(job.id) %></td>
+    <% if job.corporation == current_corporation %>
+    <td><%= link_to '編集', edit_job_path(job.id) %></td>
+    <td><%= link_to '削除', job_path(job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
-<%= link_to '新しく求人を投稿する', new_job_path %>
-<% if current_corporation %>
-<%= link_to '法人プロフィール', corporation_path(current_corporation.id) %>
-<% end %>
+
