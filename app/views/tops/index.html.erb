@@ -1,0 +1,4 @@
+<h1>トップ画面</h1>
+
+<%= link_to 'ゲストログイン（閲覧用）', rumors_guest_sign_in_path, method: :post %>
+<%= link_to '自分のプロフィール', user_path(current_user.id) %>

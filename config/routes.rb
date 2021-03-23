@@ -14,12 +14,13 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  root 'rumors#index'
+  root 'tops#index'
   post '/rumors/guest_sign_in', to: 'rumors#new_guest'
   resources :favorites
   resources :corporations_favorites
   resources :users
   resources :corporations
+  resources :tops
   resources :rumors do
     collection do
       post :confirm
