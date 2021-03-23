@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
-  get "users/show" => "users#show"
   resources :jobs do
     collection do
       post :confirm
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   resources :favorites
   resources :corporations_favorites
   resources :users
+  resources :corporations
   resources :rumors do
     collection do
       post :confirm
