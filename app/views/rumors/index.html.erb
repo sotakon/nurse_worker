@@ -2,8 +2,8 @@
 <%= search_form_for @q do |f| %>
   <%= f.label :name, "フリーワード検索" %>
   <%= f.search_field :name_or_area_or_content_cont %>
-  <%= f.label :時期 %>
-  <%= f.number_field :season_gteq %>年前〜
+  <%= f.label :働いていた時期 %>
+  <%= f.number_field :season_gteq %>〜
   <%= f.number_field :season_lt %>年前まで
   <%= f.submit "検索" %>
 <% end %>
@@ -24,12 +24,11 @@
     <td><%= rumor.area %></td>
     <td><%= rumor.season %></td>
     <td><%= rumor.content %></td>
-    <td><%= link_to '詳細を確認する', rumor_path(rumor.id) %></td>
-    <td><%= link_to "クチコミを編集する", edit_rumor_path(rumor.id) %></td>
-    <td><%= link_to 'クチコミを削除する', rumor_path(rumor.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
+    <td><%= link_to '詳細', rumor_path(rumor.id) %></td>
+    <% if rumor.user == current_user %>
+    <td><%= link_to "編集", edit_rumor_path(rumor.id) %></td>
+    <td><%= link_to '削除', rumor_path(rumor.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+    <% end %>
+    </tr>
 <% end %>
 </table>
-<%= link_to '新しくクチコミを投稿する', new_rumor_path %>
-<%= link_to 'ゲストログイン（閲覧用）', rumors_guest_sign_in_path, method: :post %>
-<%= link_to '自分のプロフィール', user_path(current_user.id) %>

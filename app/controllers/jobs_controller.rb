@@ -57,7 +57,7 @@ class JobsController < ApplicationController
       c.area = "ゲスト"
     end
     sign_in corporation
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path, notice: 'ゲストユーザー(法人)としてログインしました。'
   end
   
 private
