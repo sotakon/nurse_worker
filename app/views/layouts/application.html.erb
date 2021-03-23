@@ -4,26 +4,40 @@
     <title>NurseWorker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-  <% if user_signed_in? %>
-    <%= link_to "ブログ投稿", rumors_path %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "新規登録", new_user_registration_path %>
-    <%= link_to "ログイン", new_user_session_path %>
-  <% end %>
+    <% if user_signed_in? && current_user %>
+      <%= link_to "クチコミ投稿", rumors_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% elsif current_corporation %>
+      <%= link_to "求人投稿", jobs_path %>
+      <%= link_to "ログアウト", destroy_corporation_session_path, method: :delete %>
+    <% else %>
+      <ユーザー登録>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+      <法人登録>
+      <%= link_to "新規登録", new_corporation_registration_path %>
+      <%= link_to "ログイン", new_corporation_session_path %>
+    <% end %>
 
-  <% if notice %>
-    <p class="alert alert-notice"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-error"><%= alert %></p>
-  <% end %>
-  <%= yield %>
-</body>
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-error"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </body>
+    <footer>
+      <p>プライバシー·利用規約·広告·Ad Choices</p>
+      <p>Cookie·その他·instagram©2021</p>
+    </footer>
+    </div>
+  </body>
 </html>
+
+
+

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   root 'tops#index'
   post '/rumors/guest_sign_in', to: 'rumors#new_guest'
+  post '/jobs/guest_sign_in', to: 'jobs#new_guest'
   resources :favorites
   resources :corporations_favorites
   resources :users
@@ -29,5 +30,4 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

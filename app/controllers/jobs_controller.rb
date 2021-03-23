@@ -49,6 +49,16 @@ class JobsController < ApplicationController
     @job = current_corporation.jobs.build(job_params)
     render :new if @job.invalid?
   end
+
+  def new_guest
+    corporation = Corporation.find_or_create_by!(email: 'guest@example.com') do |c|
+      c.password = SecureRandom.urlsafe_base64
+      c.name = "ゲストユーザー"
+      c.area = "ゲスト"
+    end
+    sign_in corporation
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
   
 private
   def job_params
