@@ -7,8 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @favorite = current_corporation.corporations_favorites.find_by(user_id: @user.id)
+    if current_user
+      @user = User.find(params[:id])
+    else
+      @favorite = current_corporation.corporations_favorites.find_by(user_id: @user.id)
+    end
   end
 end
 

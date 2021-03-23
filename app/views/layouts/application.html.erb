@@ -9,10 +9,13 @@
   </head>
   <body>
     <% if user_signed_in? && current_user %>
+      <%= link_to 'プロフィール', user_path(current_user.id) %>
+      <%= link_to "求人一覧", jobs_path %>
       <%= link_to "クチコミ投稿", rumors_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% elsif current_corporation %>
       <%= link_to 'プロフィール', corporation_path(current_corporation.id) %>
+      <%= link_to "看護師一覧", users_path %>
       <%= link_to "求人一覧", jobs_path %>
       <%= link_to '求人投稿', new_job_path %>
       <%= link_to "ログアウト", destroy_corporation_session_path, method: :delete %>
