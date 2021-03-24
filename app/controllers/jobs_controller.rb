@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   def index
     @q = Job.ransack(params[:q])
-    @jobs = @q.result(distinct: true)
+    @jobs = @q.result(distinct: true).page(params[:page])
     @corporations = Corporation.all
   end
   
