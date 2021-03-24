@@ -9,12 +9,16 @@
   <% end %>
   <%= form.label :法人名 %>
   <%= form.text_field :name %>
+  <br>
   <%= form.label :エリア %>
   <%= form.text_field :area %>
+  <br>
   <%= form.label :募集人数 %>
-  <%= form.text_field :people %>
+  <%= form.number_field :people %>
+  <br>
   <%= form.label :求人内容 %>
   <%= form.text_area :content %>
+  <br>
   <%= form.submit %>
   <% end %>
   <%= link_to '求人一覧へ戻る', jobs_path %>

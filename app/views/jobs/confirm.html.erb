@@ -5,9 +5,13 @@
   <%= form.hidden_field :people %>
   <%= form.hidden_field :content %>
   <p>タイトル:<%= @job.name %></p>
+  <br>
   <p>本文:<%= @job.area %></p>
+  <br>
   <p>募集人数:<%= @job.people %></p>
+  <br>
   <p>求人内容:<%= @job.content %></p>
+  <br>
   <%= form.submit  "登録する" %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>
