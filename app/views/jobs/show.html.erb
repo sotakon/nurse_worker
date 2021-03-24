@@ -8,4 +8,4 @@
   <% else %>
     <%= link_to 'エントリーする', favorites_path(job_id: @job.id), method: :post, class: 'btn btn-primary' %>
   <% end %>
-  <%= link_to '一覧に戻る', users_path %>
+  <%= link_to '戻る', :back %>

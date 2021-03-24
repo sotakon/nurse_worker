@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     if current_user
       @user = User.find(params[:id])
     else
+      @user = User.find(params[:id])
       @favorite = current_corporation.corporations_favorites.find_by(user_id: @user.id)
     end
   end
