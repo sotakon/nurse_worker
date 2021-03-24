@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_094203) do
     t.string "name", null: false
     t.string "area", null: false
     t.text "introduction"
-    t.string "icon"
+    t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_corporations_on_email", unique: true
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_094203) do
     t.integer "age", null: false
     t.string "area", null: false
     t.text "introduction"
-    t.string "icon"
+    t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

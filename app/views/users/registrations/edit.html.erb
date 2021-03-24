@@ -28,6 +28,11 @@
     <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
   </div>
 
+  <div class="field">
+    <%= f.label :icon %><br />
+    <%= f.file_field :image, autofocus: true, autocomplete: "image" %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%= t('.currently_waiting_confirmation_for_email', email: resource.unconfirmed_email) %></div>
   <% end %>

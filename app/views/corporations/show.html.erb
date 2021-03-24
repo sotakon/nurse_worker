@@ -7,6 +7,7 @@
 <h3>紹介文</h3>
 <%= current_corporation.introduction %>
 <h3>アイコン</h3>
+<%= image_tag current_corporation.image.url %>
 <%= link_to 'プロフィール編集', edit_corporation_registration_path %>
 <p>スカウトした看護師</p>
 <% @favorite_corporation.each do |f| %>

@@ -23,7 +23,7 @@ class DeviseCreateCorporations < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :area, null: false
       t.text :introduction
-      t.string :icon
+      t.text :image
 
       ## Confirmable
       # t.string   :confirmation_token

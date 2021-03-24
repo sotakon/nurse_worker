@@ -24,7 +24,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :age, null: false
       t.string :area, null: false
       t.text :introduction
-      t.string :icon
+      t.text :image
 
       ## Confirmable
       # t.string   :confirmation_token
