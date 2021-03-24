@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :corporation_check, only: [:new, :edit, :create]
+
   def index
     @q = Job.ransack(params[:q])
     @jobs = @q.result(distinct: true)
@@ -57,7 +59,7 @@ class JobsController < ApplicationController
   def new_guest
     corporation = Corporation.find_or_create_by!(email: 'guest@example.com') do |c|
       c.password = SecureRandom.urlsafe_base64
-      c.name = "ゲストユーザー"
+      c.name = "ゲストユーザー(法人)"
       c.area = "ゲスト"
     end
     sign_in corporation
@@ -71,5 +73,14 @@ private
 
   def set_job
     @job = Job.find(params[:id])
+  end
+
+  private
+  def corporation_check
+    if current_corporation
+      users_path
+    else
+      redirect_to tops_path, notice: "ログインしている法人様しか閲覧できません。"
+    end
   end
 end
