@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     if current_user
       @user = current_user
+      @favorite = Favorite.all
     elsif current_corporation
       @user = User.find(params[:id])
       @favorite = current_corporation.corporations_favorites.find_by(user_id: @user.id)
