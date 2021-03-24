@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%= link_to 'ホーム', tops_path %>
     <% if user_signed_in? && current_user %>
       <%= link_to 'プロフィール', user_path(current_user.id) %>
       <%= link_to "求人一覧", jobs_path %>
