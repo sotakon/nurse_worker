@@ -1,6 +1,7 @@
 class RumorsController < ApplicationController
   before_action :set_rumor, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user! 
+  before_action :user_check, except: [:new_guest]
+
   def index
     @q = Rumor.ransack(params[:q])
     @rumors = @q.result(distinct: true)
@@ -69,5 +70,13 @@ private
 
   def set_rumor
     @rumor = Rumor.find(params[:id])
+  end
+end
+
+def user_check
+  if current_user
+    rumors_path
+  else
+    redirect_to tops_path, notice: "ログインしている看護師様しか閲覧できません。"
   end
 end
