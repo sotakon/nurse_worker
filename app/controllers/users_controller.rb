@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user! 
+  before_action :corporation_check, only: [:index]
   def index
     # @users = User.all
     @q = User.ransack(params[:q])
@@ -16,3 +16,11 @@ class UsersController < ApplicationController
   end
 end
 
+private
+def corporation_check
+  if current_corporation
+    users_path
+  else
+    redirect_to tops_path, notice: "ログインしている法人様しか閲覧できません。"
+  end
+end
