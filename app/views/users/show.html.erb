@@ -13,10 +13,9 @@
 <br>
 <% if @user == current_user %>
 <%= link_to 'プロフィール編集', edit_user_registration_path %>
-<br>
-<%= link_to '戻る', :back %>
 <% elsif @favorite.presence %> 
 <p>面接オファー済み</p>
 <% else %>
 <%= link_to '面接オファー', corporations_favorites_path(user_id: @user.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
+<%= link_to '戻る', :back %>
