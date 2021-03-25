@@ -10,27 +10,27 @@
 
   <div class="field">
     <%= f.label :年齢 %><br />
-    <%= f.text_field :age, autofocus: true, autocomplete: "age" %>
+    <%= f.number_field :age, autocomplete: "age" %>
   </div>
 
   <div class="field">
     <%= f.label :住まい %><br />
-    <%= f.text_field :area, autofocus: true, autocomplete: "area" %>
+    <%= f.text_field :area, autocomplete: "area" %>
   </div>
 
   <div class="field">
     <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">
     <%= f.label :自己PR %><br />
-    <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
+    <%= f.text_area :introduction, autocomplete: "introduction" %>
   </div>
 
   <div class="field">
     <%= f.label :icon %><br />
-    <%= f.file_field :image, autofocus: true, autocomplete: "image" %>
+    <%= f.file_field :image, autocomplete: "image" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
