@@ -4,10 +4,15 @@
   <%= f.search_field :name_or_area_or_content_cont %>
   <%= f.submit "検索" %>
 <% end %>
+<%= form_with url: jobs_path, method: :get, local: true do |form| %>
+  <%= form.select("label_id", Label.pluck(:name, :id), { include_blank: true }) %>
+  <%= form.submit 'Search', name: nil %>
+<% end %>
 <table> 
   <tr>
     <th>投稿した法人</th>
     <th>勤務先名</th>
+    <th>施設形態</th>
     <th><%= sort_link(@q, :area, "住所") %></th>
     <th>募集人数</th>
     <th>求人内容</th>
@@ -17,6 +22,11 @@
 <% @jobs.each do |job| %>
   <tr>
     <td><%= job.corporation.name %></td>
+    <td>
+    <% job.labels.each do |label| %>
+      <%= label.name %>
+    <% end %>
+    </td>
     <td><%= job.name %></td>
     <td><%= job.area %></td>
     <td><%= job.people %>名</td>

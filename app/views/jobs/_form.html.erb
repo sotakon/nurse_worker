@@ -19,6 +19,9 @@
   <%= form.label :求人内容 %>
   <%= form.text_area :content, value: "（例）\n業務内容:\n募集要項:\n求める人物像:\nPRポイント:" %>
   <br>
+  <br>
+  <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+  </br>
   <%= form.submit %>
   <% end %>
   <%= link_to '求人一覧へ戻る', jobs_path %>

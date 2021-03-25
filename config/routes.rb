@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :labels
   devise_for :corporations, controllers: {
     sessions:      'corporations/sessions',
     passwords:     'corporations/passwords',

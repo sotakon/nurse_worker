@@ -4,6 +4,7 @@
   <%= form.hidden_field :area %>
   <%= form.hidden_field :people %>
   <%= form.hidden_field :content %>
+  <%= form.hidden_field :label_ids, :value => params[:job][:label_ids], multiple: true %>
   <p>タイトル:<%= @job.name %></p>
   <br>
   <p>本文:<%= @job.area %></p>
@@ -12,6 +13,7 @@
   <br>
   <p>求人内容:<%= @job.content %></p>
   <br>
+  
   <%= form.submit  "登録する" %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>

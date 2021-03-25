@@ -6,6 +6,7 @@ class JobsController < ApplicationController
     @q = Job.ransack(params[:q])
     @jobs = @q.result(distinct: true).page(params[:page])
     @corporations = Corporation.all
+    @jobs = @jobs.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
   
   def new
@@ -68,7 +69,7 @@ class JobsController < ApplicationController
   
 private
   def job_params
-    params.require(:job).permit(:name, :area, :people, :content, :corporation_id)
+    params.require(:job).permit(:name, :area, :people, :content, :corporation_id, :title, { label_ids: [] })
   end
 
   def set_job
