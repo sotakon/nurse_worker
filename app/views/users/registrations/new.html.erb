@@ -4,7 +4,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :名前 %><br />
+    <%= f.label :アカウント名 %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
 
@@ -14,7 +14,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :住まい %><br />
+    <%= f.label :"希望エリア (例:仙台市内)" %><br />
     <%= f.text_field :area, autocomplete: "area" %>
   </div>
 
@@ -24,12 +24,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :自己ＰＲ %><br />
-    <%= f.text_area :introduction, autocomplete: "introduction" %>
+    <%= f.label :自己ＰＲ・希望条件 %><br />
+    <%= f.text_area :introduction, value: "（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:" %>
   </div>
 
   <div class="field">
-    <%= f.label :icon %><br />
+    <%= f.label :アカウント画像 %><br />
     <%= f.file_field :image, autocomplete: "image" %>
   </div>
 

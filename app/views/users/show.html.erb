@@ -9,7 +9,7 @@
 <h3>自己紹介</h3>
 <%= @user.introduction%>
 <h3>アイコン</h3>
-<%= image_tag @user.image.url %>
+<%= image_tag (@user.image.url) if @user.image && @user.image.url %>
 <% if @user == current_user %>
 <%= link_to 'プロフィール編集', edit_user_registration_path %>
 <p>エントリーした法人</p>

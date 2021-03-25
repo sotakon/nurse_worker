@@ -5,21 +5,21 @@
 
   <div class="field">
     <%= f.label :法人名 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :所在地 %><br />
-    <%= f.text_field :area, autocomplete: "area" %>
+    <%= f.text_field :area %>
   </div>
 
   <div class="field">
     <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :紹介文 %><br />
+    <%= f.label :法人紹介 %><br />
     <%= f.text_area :introduction, autocomplete: "introduction" %>
   </div>
 

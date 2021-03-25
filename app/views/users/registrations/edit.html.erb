@@ -4,32 +4,32 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= f.label :アカウント名 %><br />
+    <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
     <%= f.label :年齢 %><br />
-    <%= f.number_field :age, autocomplete: "age" %>
+    <%= f.number_field :age %>
   </div>
 
   <div class="field">
-    <%= f.label :住まい %><br />
-    <%= f.text_field :area, autocomplete: "area" %>
+    <%= f.label :"希望エリア(例:仙台市内)" %><br />
+    <%= f.text_field :area %>
   </div>
 
   <div class="field">
     <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
-    <%= f.label :自己PR %><br />
+    <%= f.label :自己PR・希望条件 %><br />
     <%= f.text_area :introduction, autocomplete: "introduction" %>
   </div>
 
   <div class="field">
-    <%= f.label :icon %><br />
+    <%= f.label :アカウント画像 %><br />
     <%= f.file_field :image, autocomplete: "image" %>
   </div>
 
