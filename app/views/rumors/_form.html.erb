@@ -12,9 +12,9 @@
   <%= form.label :エリア %>
   <%= form.text_field :area %>
   <%= form.label :働いていた時期 %>
-  <%= form.text_field :season %>
+  <%= form.number_field :season %>年前
   <%= form.label :クチコミ %>
-  <%= form.text_area :content %>
+  <%= form.text_area :content, value: "（例）\n労働環境:\n待遇:\nキャリアアップ:\n改善した方が良い点:" %>
   <%= form.submit %>
   <% end %>
   <%= link_to '戻る', :back %>
