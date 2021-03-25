@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :corporation_check, only: [:index]
   def index
-    # @users = User.all
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).page(params[:page])
   end
