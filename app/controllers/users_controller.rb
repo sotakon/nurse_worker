@@ -20,7 +20,7 @@ end
 
 private
 def corporation_check
-  if current_corporation
+  if current_corporation || current_user.admin?
     users_path
   else
     redirect_to tops_path, notice: "ログインしている法人様しか閲覧できません。"

@@ -32,7 +32,7 @@
     <td><%= job.people %>名</td>
     <td><%= job.content %></td>
     <td><%= link_to '詳細', job_path(job.id) %></td>
-    <% if job.corporation == current_corporation %>
+    <% if job.corporation == current_corporation || current_user.admin?%>
     <td><%= link_to '編集', edit_job_path(job.id) %></td>
     <td><%= link_to '削除', job_path(job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>

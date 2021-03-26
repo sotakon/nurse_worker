@@ -57,6 +57,7 @@ class RumorsController < ApplicationController
       user.name = "ゲストユーザー（看護師）"
       user.age = 22
       user.area = "ゲスト"
+      user.admin = true
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
     sign_in user

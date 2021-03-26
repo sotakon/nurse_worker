@@ -29,6 +29,10 @@
       <%= link_to "新規登録", new_corporation_registration_path %>
       <%= link_to "ログイン", new_corporation_session_path %>
     <% end %>
+    <% if current_user != nil && current_user.admin? %>
+    <%= link_to '管理画面', admins_path %>
+    <% elsif current_corporation || current_user || current_user == nil %>
+    <% end %>
 
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>

@@ -25,7 +25,7 @@
     <td><%= rumor.season %></td>
     <td><%= rumor.content %></td>
     <td><%= link_to '詳細', rumor_path(rumor.id) %></td>
-    <% if rumor.user == current_user %>
+    <% if rumor.user == current_user || current_user.admin?%>
     <td><%= link_to "編集", edit_rumor_path(rumor.id) %></td>
     <td><%= link_to '削除', rumor_path(rumor.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
     <% end %>

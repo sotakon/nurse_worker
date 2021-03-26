@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :users
   resources :corporations
   resources :tops
+  resources :admins
   resources :rumors do
     collection do
       post :confirm
