@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'oauth/index'
   resources :labels
   devise_for :corporations, controllers: {
     sessions:      'corporations/sessions',
@@ -8,13 +9,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
-    registrations: 'users/registrations'
+    registrations: 'users/registrations',
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :jobs do
     collection do
       post :confirm
     end
   end
+  # root to: 'oauth#index'
   root 'tops#index'
   post '/rumors/guest_sign_in', to: 'rumors#new_guest'
   post '/jobs/guest_sign_in', to: 'jobs#new_guest'

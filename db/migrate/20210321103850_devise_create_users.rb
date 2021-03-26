@@ -6,6 +6,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :provider, null: false, default: ""
+      t.string :uid, null: false, default: ""
 
       ## Recoverable
       t.string   :reset_password_token
@@ -20,9 +22,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :last_sign_in_at
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
-      t.string :name, null: false
-      t.integer :age, null: false
-      t.string :area, null: false
+      t.string :name
+      t.integer :age
+      t.string :area
       t.text :introduction
       t.text :image
 
@@ -43,6 +45,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
+    add_index :users, [:uid, :provider], unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
   end

@@ -52,6 +52,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
+  gem 'dotenv-rails'
 end
 
 group :test do
@@ -70,3 +71,5 @@ gem 'ransack'
 gem 'kaminari', '~> 0.17.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'omniauth', '1.9.1'
+gem 'omniauth-google-oauth2'
