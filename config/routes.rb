@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :tops
   resources :admins
   resources :rumors do
+    resources :comments
     collection do
       post :confirm
     end

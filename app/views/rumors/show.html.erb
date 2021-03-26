@@ -4,3 +4,12 @@
 <p>働いていた時期: <%= @rumor.season %></p>
 <p>クチコミ: <%= @rumor.content %></p>
 <%= link_to '戻る', :back %>
+
+<div id="comments_area">
+<%= render partial: 'comments/index', locals: { comments: @comments, rumor: @rumor } %>
+</div>
+<!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+<%= render partial: 'comments/form', locals: { comment: @comment, rumor: @rumor } %>
+<%= link_to '編集', edit_rumor_path(@rumor) %> |
+<%= link_to '戻る', rumors_path %>
+</div>

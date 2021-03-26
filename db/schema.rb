@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_074640) do
+ActiveRecord::Schema.define(version: 2021_03_26_123341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "rumor_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rumor_id"], name: "index_comments_on_rumor_id"
+  end
 
   create_table "corporations", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -113,6 +121,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_074640) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "comments", "rumors"
   add_foreign_key "jobs", "corporations"
   add_foreign_key "labellings", "jobs"
   add_foreign_key "labellings", "labels"

@@ -28,6 +28,8 @@ class RumorsController < ApplicationController
   end
 
   def show
+    @comments = @rumor.comments
+    @comment = @rumor.comments.build
   end
 
   def edit
