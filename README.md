@@ -34,6 +34,8 @@ https://docs.google.com/spreadsheets/d/1FCHCs2at3CXkj4EIs9bKO_UpvWL00ZPAJR__R-R6
 * ransack
 * carrierwave
 * kaminari
+* mini_magick
+* omniauth
 ## 卒業課題要件
 * 就業Term内の技術
     * devise
