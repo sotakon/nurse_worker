@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   get 'oauth/index'
   resources :labels
   devise_for :corporations, controllers: {
@@ -21,12 +23,16 @@ Rails.application.routes.draw do
   root 'tops#index'
   post '/rumors/guest_sign_in', to: 'rumors#new_guest'
   post '/jobs/guest_sign_in', to: 'jobs#new_guest'
+  resources :relationships, only: [:create, :destroy]
   resources :favorites
   resources :corporations_favorites
   resources :users
   resources :corporations
   resources :tops
   resources :admins
+  resources :conversations do
+    resources :messages
+  end
   resources :rumors do
     resources :comments
     collection do

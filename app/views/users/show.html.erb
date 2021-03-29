@@ -16,9 +16,20 @@
 <% @favorite.each do |f| %>
 <p>【<%= f.job.name %>】</p>
 <% end %>
+<p>フォローしているユーザー</p>
+<% @user.following.each do |f| %>
+<p><%= link_to f.name, user_path(f.id) %>
+<% if f.following.find_by(id: @user.id).present? %>
+<%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
+<% end %>
+<% end %>
+<% elsif current_user %>
+<%= render 'follow_form', user: @user %>
 <% elsif @favorite.presence %> 
 <p>面接オファー済み</p>
-<% else %>
+<% elsif current_corporation %>
 <%= link_to '面接オファー', corporations_favorites_path(user_id: @user.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
+<br>
+<br>
 <%= link_to '戻る', :back %>
