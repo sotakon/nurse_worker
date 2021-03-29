@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   resources :corporations
   resources :tops
   resources :admins
+  resources :conversations do
+    resources :messages
+  end
   resources :rumors do
     resources :comments
     collection do
