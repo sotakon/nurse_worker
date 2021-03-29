@@ -12,6 +12,7 @@
     <% if user_signed_in? && current_user %>
       <%= link_to 'プロフィール', user_path(current_user.id) %>
       <%= link_to "求人一覧", jobs_path %>
+      <%= link_to "看護師一覧", users_path %>
       <%= link_to "クチコミ一覧", rumors_path %>
       <%= link_to 'クチコミ投稿', new_rumor_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

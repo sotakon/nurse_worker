@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     if current_user
-      @user = current_user
+      @user = User.find(params[:id])
       @favorite = Favorite.all
     elsif current_corporation
       @user = User.find(params[:id])
@@ -20,7 +20,7 @@ end
 
 private
 def corporation_check
-  if current_corporation || current_user.admin?
+  if current_corporation || current_user.admin? || current_user
     users_path
   else
     redirect_to tops_path, notice: "ログインしている法人様しか閲覧できません。"

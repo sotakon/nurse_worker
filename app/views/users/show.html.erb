@@ -16,9 +16,11 @@
 <% @favorite.each do |f| %>
 <p>【<%= f.job.name %>】</p>
 <% end %>
+<% elsif current_user %>
+<%= render 'follow_form', user: @user %>
 <% elsif @favorite.presence %> 
 <p>面接オファー済み</p>
-<% else %>
+<% elsif current_corporation %>
 <%= link_to '面接オファー', corporations_favorites_path(user_id: @user.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
 <%= link_to '戻る', :back %>
