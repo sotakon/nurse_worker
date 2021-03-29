@@ -16,6 +16,10 @@
 <% @favorite.each do |f| %>
 <p>【<%= f.job.name %>】</p>
 <% end %>
+<p>フォロー</p>
+<% @user.following.each do |f| %>
+<p>【<%= f.name %>】</p>
+<% end %>
 <% elsif current_user %>
 <%= render 'follow_form', user: @user %>
 <% elsif @favorite.presence %> 
