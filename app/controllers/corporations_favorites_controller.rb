@@ -3,7 +3,7 @@ class CorporationsFavoritesController < ApplicationController
     @favorite = current_corporation.corporations_favorites.create(user_id: params[:user_id])
     OfferMailer.offer_mail(@favorite).deliver
     OfferMailer.offer_corporation_mail(@favorite).deliver
-    redirect_to users_path, notice: "#{@favorite.user.name}さんに面接オファーを出しました"
+    redirect_to users_path, notice: "#{@favorite.user.name}さんにスカウトメールを送りました"
   end
 
   def destroy
