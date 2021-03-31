@@ -1,5 +1,34 @@
-<h1>トップ画面</h1>
-
-<%= link_to 'ゲストログイン（看護師）', rumors_guest_sign_in_path, method: :post %>
-<%= link_to 'ゲストログイン（法人）', jobs_guest_sign_in_path, method: :post %>
-<%= link_to 'Googleアカウントでログイン（看護師）', user_google_omniauth_authorize_path %>
+<div class="banner"> Welcome! </div>
+<section class="about">
+    <h1>About Achieve</h1>
+    <br>
+    <p>
+      Achieveは、受講生のために作成された、教材用ページです。<br>
+      Achieveを作り終えることで、HTML課題を合格することができます。
+    </p>
+    <p>
+      Acheiveを一言で表すと、タスク管理アプリケーションのトップページのモックアップです。<br>
+      チームメンバーが、今どのタスクを行っているか把握することができる、というアプリケーションの機能を説明をするページです。
+    </p>
+  </section>
+  <section class="function">
+    <h1>SERVICE</h1>
+    <div class="function-images">
+      <div class="function-image">
+        <img src="vendors/images/key.png">
+        <p>ログイン機能</p>
+      </div>
+      <div class="function-image">
+        <img src="vendors/images/mails.png">
+        <p>メール送信機能</p>
+      </div>
+      <div class="function-image">
+        <img src="vendors/images/girls.png">
+        <p>友達つながり機能</p>
+      </div>
+      <div class="function-image">
+        <img src="vendors/images/comment.png">
+        <p>コメント投稿機能</p>
+      </div>
+    </div>
+  </section>

@@ -20,6 +20,7 @@
   <br>
   <div class="actions">
     <%= f.submit ('ログインする') %>
+    <%= link_to 'ゲストログイン（法人）', jobs_guest_sign_in_path, method: :post %>
   </div>
   <br>
   <%= link_to t("パスワードを忘れた方"), new_password_path(resource_name) %>

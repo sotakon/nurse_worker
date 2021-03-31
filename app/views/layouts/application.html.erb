@@ -7,47 +7,66 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
-    <%= link_to 'ホーム', tops_path %>
-    <% if user_signed_in? && current_user %>
-      <%= link_to 'プロフィール', user_path(current_user.id) %>
-      <%= link_to "求人一覧", jobs_path %>
-      <%= link_to "看護師一覧", users_path %>
-      <%= link_to "クチコミ一覧", rumors_path %>
-      <%= link_to 'クチコミ投稿', new_rumor_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% elsif current_corporation %>
-      <%= link_to 'プロフィール', corporation_path(current_corporation.id) %>
-      <%= link_to "看護師一覧", users_path %>
-      <%= link_to "求人一覧", jobs_path %>
-      <%= link_to '求人投稿', new_job_path %>
-      <%= link_to "ログアウト", destroy_corporation_session_path, method: :delete %>
-    <% else %>
-      <ユーザー登録>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-      <法人登録>
-      <%= link_to "新規登録", new_corporation_registration_path %>
-      <%= link_to "ログイン", new_corporation_session_path %>
-    <% end %>
-    <% if current_user != nil && current_user.admin? %>
-    <%= link_to '管理画面', admins_path %>
-    <% elsif current_corporation || current_user || current_user == nil %>
-    <% end %>
+
+  <header class="header">
+  <div class="container">
+    <h1 class="logo"><%= link_to "ホーム", tops_path %></h1>
+    <ul class="nav">
+      <% if user_signed_in? && current_user %>
+      <li><%= link_to 'プロフィール', user_path(current_user.id) %></li>
+      <li><%= link_to "求人一覧", jobs_path %></li>
+      <li><%= link_to "看護師一覧", users_path %></li>
+      <li><%= link_to "クチコミ一覧", rumors_path %></li>
+      <li><%= link_to 'クチコミ投稿', new_rumor_path %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <% elsif current_corporation %>
+      <li><%= link_to 'プロフィール', corporation_path(current_corporation.id) %></li>
+      <li><%= link_to "看護師一覧", users_path %></li>
+      <li><%= link_to "求人一覧", jobs_path %></li>
+      <li><%= link_to '求人投稿', new_job_path %></li>
+      <li><%= link_to "ログアウト", destroy_corporation_session_path, method: :delete %></li>
+      <% else %>
+      <li><ユーザー登録></li>
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
+      <li><法人登録></li>
+      <li><%= link_to "新規登録", new_corporation_registration_path %></li>
+      <li><%= link_to "ログイン", new_corporation_session_path %></li>
+      <% end %>
+      <% if current_user != nil && current_user.admin? %>
+      <li><%= link_to '管理画面', admins_path %></li>
+      <% elsif current_corporation || current_user || current_user == nil %>
+      <% end %>
+    </ul>
+  </div>
+</header>
 
     <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-    <%= yield %>
-  </body>
-    <footer>
-      <p>プライバシー·利用規約·広告·Ad Choices</p>
-      <p>Cookie·その他·instagram©2021</p>
-    </footer>
+    <p class="alert alert-notice"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-error"><%= alert %></p>
+  <% end %>
+  <%= yield %>
+    <footer class="footer">
+    <div class="container">
+        <ul class="nav">
+            <li><a href="#fake">Home</a> </li>
+            <li>|</li>
+            <li><a href="#fake">Tickets</a> </li>
+            <li>|</li>
+            <li><a href="#fake">Recent Action </a> </li>
+            <li>|</li>
+            <li><a href="#fake">About  </a> </li>
+            <li>|</li>
+            <li><a href="#fake">contact us</a> </li>
+        </ul>
     </div>
+      <p class="copy"> Copy rights @Vineeth.TR </p>
+</footer>
+   
+
+
   </body>
 </html>
 
