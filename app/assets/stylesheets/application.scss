@@ -21,18 +21,6 @@
   -webkit-box-sizing:border-box;
   font-family:arial;
 }
-body{background:#ecf0f1; font-family:arial; margin:0; color:#888}
-.banner{
-  background:#00DAFC;
-  line-height:400px;
-  text-align:center;
-  color:#fff;
-  font-size:60px;
-  height:661px;
-  width: 100%;
-}
-
-
 
 .header{
   height:95px;
@@ -59,25 +47,33 @@ body{background:#ecf0f1; font-family:arial; margin:0; color:#888}
 }
 
 .container{
-  max-width:1200px;
-  padding:0 15px;
+  max-width:1300px;
   width:100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 .container:after {
     clear: both;
     content: "";
     display: table;
 }
-.footer{
-  background:#0A95AA; 
-  color:#fff; 
-  height:100px
+
+.wrapper{
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  background-color: #F6F8FA;
 }
-.copy{
-  font-size:10px;
-  text-align:center
-}
-.fixed-bottom{
-  top:auto;
-  bottom:0;
+
+footer{
+  width: 100%;
+  background-color: #606060;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
 }

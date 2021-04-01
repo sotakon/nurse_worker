@@ -1,4 +1,7 @@
 <h1>クチコミ一覧</h1>
+<% if user_signed_in? && current_user %>
+<%= link_to 'クチコミ投稿', new_rumor_path %>
+<% end %>
 <%= search_form_for @q do |f| %>
   <%= f.label :name, "フリーワード検索" %>
   <%= f.search_field :name_or_area_or_content_cont %>
