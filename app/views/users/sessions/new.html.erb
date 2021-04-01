@@ -20,6 +20,9 @@
 <br>
   <div class="actions">
     <%= f.submit ('ログインする') %>
+    <%= link_to 'ゲストログイン（看護師）', rumors_guest_sign_in_path, method: :post %>
+    <%= link_to 'Googleアカウントでログイン（看護師）', user_google_omniauth_authorize_path %>
+<div class="banner"> Welcome! </div>
   </div>
 <% end %>
 <br>

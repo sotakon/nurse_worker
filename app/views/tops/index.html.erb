@@ -1,5 +1,59 @@
-<h1>トップ画面</h1>
-
-<%= link_to 'ゲストログイン（看護師）', rumors_guest_sign_in_path, method: :post %>
-<%= link_to 'ゲストログイン（法人）', jobs_guest_sign_in_path, method: :post %>
-<%= link_to 'Googleアカウントでログイン（看護師）', user_google_omniauth_authorize_path %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+</ol>
+<div class="carousel-inner">
+  <div class="carousel-item active">
+    <%= image_tag "main1", class: "main_images", alt:"..."%>
+  </div>
+  <div class="carousel-item">
+    <%= image_tag "main2", class: "main_images", alt:"..."%>
+  </div>
+  <div class="carousel-item">
+    <%= image_tag "main3", class: "main_images", alt:"..."%>
+  </div>
+</div>
+<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
+</div>
+  <section class="function">
+    <h1>SERVICE</h1>
+    <div class="function-images">
+      <div class="function-image">
+        <%= image_tag "function1", class: "f-images"%>
+        <p>ログイン機能</p>
+      </div>
+      <div class="function-image">
+        <img src="vendors/images/mails.png">
+        <p>メール送信機能</p>
+      </div>
+      <div class="function-image">
+        <img src="vendors/images/girls.png">
+        <p>友達つながり機能</p>
+      </div>
+      <div class="function-image">
+        <img src="vendors/images/comment.png">
+        <p>コメント投稿機能</p>
+      </div>
+    </div>
+  </section>
+  <section class="about">
+    <h1>About Achieve</h1>
+    <br>
+    <p>
+      Achieveは、受講生のために作成された、教材用ページです。<br>
+      Achieveを作り終えることで、HTML課題を合格することができます。
+    </p>
+    <p>
+      Acheiveを一言で表すと、タスク管理アプリケーションのトップページのモックアップです。<br>
+      チームメンバーが、今どのタスクを行っているか把握することができる、というアプリケーションの機能を説明をするページです。
+    </p>
+  </section>
