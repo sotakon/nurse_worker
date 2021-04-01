@@ -4,39 +4,22 @@
   <%= f.search_field :name_or_area_or_content_cont %>
   <%= f.submit "検索" %>
 <% end %>
-<%= form_with url: jobs_path, method: :get, local: true do |form| %>
-  <%= form.select("label_id", Label.pluck(:name, :id), { include_blank: true }) %>
-  <%= form.submit 'Search', name: nil %>
-<% end %>
-<table> 
-  <tr>
-    <th>投稿した法人</th>
-    <th>勤務先名</th>
-    <th>施設形態</th>
-    <th><%= sort_link(@q, :area, "住所") %></th>
-    <th>募集人数</th>
-    <th>求人内容</th>
-    <th colspan="3"></th>
-  </tr>
-<table> 
 <% @jobs.each do |job| %>
-  <tr>
-    <td><%= job.corporation.name %></td>
-    <td>
-    <% job.labels.each do |label| %>
-      <%= label.name %>
-    <% end %>
-    </td>
-    <td><%= job.name %></td>
-    <td><%= job.area %></td>
-    <td><%= job.people %>名</td>
-    <td><%= job.content %></td>
-    <td><%= link_to '詳細', job_path(job.id) %></td>
+  <div class="card-deck" style="width:18rem">
+  <div class="card">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
+  <div class="card-body">
+    <h3 class="card-title"><%= job.name %></h3>
+    <h4 class="card-title"><%= job.area %></h4>
+    <h5 class="card-title"><%= job.people %></h5>
+    <p class="card-text"><%= job.content %></p>
+    <a><%= link_to '詳細', job_path(job.id) %></a>
     <% if job.corporation == current_corporation || current_user.admin?%>
-    <td><%= link_to '編集', edit_job_path(job.id) %></td>
-    <td><%= link_to '削除', job_path(job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+    <a><%= link_to '編集', edit_job_path(job.id) %></a>
+    <a><%= link_to '削除', job_path(job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></a>
     <% end %>
-  </tr>
+    </div>
+    </div>
+    </div>
 <% end %>
-</table>
 <%= paginate @jobs %>
