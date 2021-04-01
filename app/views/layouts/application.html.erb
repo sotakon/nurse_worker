@@ -10,7 +10,7 @@
 
   <header class="header">
   <div class="container">
-    <h1 class="logo"><%= link_to "ホーム", tops_path %></h1>
+    <h1 class="logo"><%= link_to "Nurse Worker", tops_path %></h1>
     <ul class="nav">
       <% if user_signed_in? && current_user %>
       <li><%= link_to 'プロフィール', user_path(current_user.id) %></li>
