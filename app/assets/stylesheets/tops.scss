@@ -1,9 +1,11 @@
 .about {
   /* About Achieve部分の実装 */
-    font-size: 1.6rem;
+    font-size: 1rem;
     line-height: 2;
     margin:50px auto;
     background-color: #F6F8FA;
+    text-align: center;
+    color: #6C6C6C;
   }
   /* ここから */
   .function {
@@ -16,19 +18,20 @@
     font-size: 3rem;
     position:relative;
     top: 50px;
+    text-align: center;
+    color: #6C6C6C;
   }
   .function-images {
     margin-top: auto;
     margin-bottom: auto;
     margin-top: 60px;
+    text-align: center;
   }
   .function-image {
     display: inline-block;
     margin: 50px;
   }
-  .function-image p{
-    font-size: 1.5rem;
-  }
+  
   .f-images{
     width: 170px;
     height: 170px;
