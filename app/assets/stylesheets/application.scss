@@ -33,7 +33,15 @@
   margin:0;
   line-height:50px;
   float:left;
+  font-size: 2.8rem;
+  color: #6C6C6C;
+  font-family: 'Playfair Display', serif;
+  padding-top: 10px;
+  padding-left: 20px;
 }
+.logo:hover {
+  text-decoration: none;
+  }
 .nav{
   list-style:none;
   float:left;
