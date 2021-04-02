@@ -5,31 +5,31 @@
   <%= f.submit "検索" %>
 <% end %>
 <div class="card_container">
-<% @jobs.each do |job| %>
-  <div class ="card1">
-  <div class="row text-center">
-  <div class="col-lg-3 col-md-6 mb-4">
-  <div class="card h-100">
-    <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-    <div class="card-body">
-    <h3 class="card-title"><%= job.name %></h3>
-    <h4 class="card-title"><%= job.area %></h4>
-    <h5 class="card-title"><%= job.people %></h5>
-    <p class="card-text"><%= job.content %></p>
-    <a><%= link_to '詳細', job_path(job.id) %></a>
-    <% if job.corporation == current_corporation || current_user.admin?%>
-    <a><%= link_to '編集', edit_job_path(job.id) %></a>
-    <a><%= link_to '削除', job_path(job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></a>
-    <% end %>
+  <% @jobs.each do |job| %>
+    <div class ="card1">
+      <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+              <div class="card-body">
+                <h3 class="card-title"><%= job.name %></h3>
+                <h4 class="card-title"><%= job.area %></h4>
+                <h5 class="card-title"><%= job.people %></h5>
+                <p class="card-text"><%= job.content %></p>
+                <a><%= link_to '詳細', job_path(job.id) %></a>
+                <% if job.corporation == current_corporation || current_user.admin?%>
+                <a><%= link_to '編集', edit_job_path(job.id) %></a>
+                <a><%= link_to '削除', job_path(job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></a>
+                <% end %>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary">Find Out More!</a>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card-footer">
-      <a href="#" class="btn btn-primary">Find Out More!</a>
-    </div>
-  </div>
-  </div>
-</div>
-</div>
-<% end %>
+  <% end %>
 <%= paginate @jobs %>
 
 
