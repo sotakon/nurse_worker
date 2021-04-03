@@ -3,13 +3,11 @@
 <h2>ログイン</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス" %>
   </div>
-
+<br>
   <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder:"パスワード" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -21,7 +19,7 @@
 <br>
   <div class="actions">
     <p><%= f.submit 'ログインする', class:"btn-square" %></p>
-    <p><%= link_to 'ゲストユーザー', rumors_guest_sign_in_path, method: :post, class:"btn-square" %></p>
+    <p><%= link_to 'ゲストユーザーでログイン', rumors_guest_sign_in_path, method: :post, class:"btn-square" %></p>
     <p><%= link_to 'Googleアカウントでログイン', user_google_omniauth_authorize_path, class:"btn-square" %></p>
   </div>
 <% end %>
