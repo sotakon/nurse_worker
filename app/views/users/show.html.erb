@@ -1,3 +1,4 @@
+<div class="login">
 <h3>ユーザー名</h3>
 <%= @user.name %>
 <h3>年齢</h3>
@@ -9,7 +10,7 @@
 <h3>自己紹介</h3>
 <%= @user.introduction%>
 <h3>アイコン</h3>
-<%= image_tag (@user.image.url) if @user.image && @user.image.url %>
+<%= image_tag (@user.image.url),width:"300px" if @user.image && @user.image.url %>
 <% if @user == current_user %>
 <% if current_user.admin? %>
 <%= link_to '管理画面', admins_path %>
@@ -36,3 +37,4 @@
 <br>
 <br>
 <%= link_to '戻る', :back %>
+</div>
