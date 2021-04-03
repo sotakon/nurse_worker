@@ -1,5 +1,5 @@
+<div class="login">
 <h2><%= ('ログイン') %></h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
@@ -19,9 +19,10 @@
   <% end %>
   <br>
   <div class="actions">
-    <%= f.submit ('ログインする') %>
-    <%= link_to 'ゲストログイン（法人）', jobs_guest_sign_in_path, method: :post %>
+    <p><%= f.submit ('ログイン'), class:"btn-square" %></p>
+    <p><%= link_to 'ゲストユーザー', jobs_guest_sign_in_path, method: :post, class:"btn-square" %></p>
   </div>
   <br>
-  <%= link_to t("パスワードを忘れた方"), new_password_path(resource_name) %>
+  <%= link_to t("パスワードをお忘れですか？"), new_password_path(resource_name) %>
 <% end %>
+</div>
