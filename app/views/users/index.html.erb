@@ -1,3 +1,4 @@
+<div class= "users">
 <h1>看護師一覧</h1>
 <%= search_form_for @q do |f| %>
   <%= f.label :name, "フリーワード検索" %>
@@ -25,4 +26,5 @@
   </tr>
 <% end %>
 </table>
+</div>
 <%= paginate @users %>

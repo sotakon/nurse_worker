@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @job = Job.all
     if current_user
       @user = User.find(params[:id])
       @favorite = Favorite.all

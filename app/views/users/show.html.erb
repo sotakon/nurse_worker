@@ -1,24 +1,38 @@
-<div class="login">
-<h3>ユーザー名</h3>
-<%= @user.name %>
-<h3>年齢</h3>
-<%= @user.age%>
-<h3>エリア</h3>
-<%= @user.area %>
-<h3>メールアドレス</h3>
-<%= @user.email %>
-<h3>自己紹介</h3>
-<%= @user.introduction%>
-<h3>アイコン</h3>
+<div class="profile">
 <%= image_tag (@user.image.url),width:"300px" if @user.image && @user.image.url %>
+<table>
+<tr>
+<th>ユーザー名</th>
+<td><%= @user.name %></td>
+</tr>
+<tr>
+<th>年齢</th>
+<td><%= @user.age%></td>
+</tr>
+<tr>
+<th>エリア</th>
+<td><%= @user.area %><td>
+</tr>
+<tr>
 <% if @user == current_user %>
-<% if current_user.admin? %>
-<%= link_to '管理画面', admins_path %>
+<th>メールアドレス</th>
+<td><%= @user.email %></td>
 <% end %>
-<%= link_to 'プロフィール編集', edit_user_registration_path %>
-<p>エントリーした法人</p>
+</tr>
+<tr>
+<th>自己PR</th>
+<td><%= @user.introduction%></td>
+</tr>
+<tr>
+<% if @user == current_user %>
+<th>エントリーした法人</th>
+<td>
 <% @favorite.each do |f| %>
-<p>【<%= f.job.name %>】</p>
+<p><%= link_to f.job.name, job_path(f.job.id) %>  <%= link_to "削除",favorite_path(id: current_user.favorites.find_by(job_id: @job.ids)),method: :delete %></p>
+<% end %>
+</td>
+</table>
+<% if @user == current_user %>
 <% end %>
 <p>フォローしているユーザー</p>
 <% @user.following.each do |f| %>
@@ -36,5 +50,11 @@
 <% end %>
 <br>
 <br>
-<%= link_to '戻る', :back %>
+<%= link_to '戻る', :back, class: "btn-square-pop" %>
+<% if @user == current_user %>
+<%= link_to 'プロフィール編集', edit_user_registration_path, class: "btn-square-pop" %>
+<% if current_user.admin? %>
+<%= link_to '管理画面', admins_path, class: "btn-square-pop" %>
+<% end %>
+<% end %>
 </div>
