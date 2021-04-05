@@ -1,9 +1,10 @@
 <h1>求人一覧</h1>
-<%= link_to '求人投稿', new_job_path, class: "btn-square-pop" %>
+
 <%= search_form_for @q do |f| %>
-  <%= f.label :name, "フリーワード検索" %>
-  <%= f.search_field :name_or_area_or_content_cont %>
-  <%= f.submit "検索" %>
+  <%= link_to '求人投稿', new_job_path, class: "btn-square-pop" %>
+  <%= f.search_field :name_or_area_or_content_cont, placeholder:"フリーワード検索" %>
+  <%= f.submit "検索", class: "btn-square-pop" %>
+  
 <% end %>
 <div class="card_container">
   <% @jobs.each do |job| %>
