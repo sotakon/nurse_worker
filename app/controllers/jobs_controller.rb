@@ -20,7 +20,7 @@ class JobsController < ApplicationController
         render :new
       else
         if @job.save
-          redirect_to jobs_path, notice: "求人を作成しました！"
+          redirect_to jobs_path, notice: "求人を作成しました"
         else
           render :new
         end
@@ -41,7 +41,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update(job_params)
-      redirect_to jobs_path, notice: "求人を編集しました！"
+      redirect_to jobs_path, notice: "求人を編集しました"
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    redirect_to jobs_path, notice: "求人を削除しました！"
+    redirect_to jobs_path, notice: "求人を削除しました"
   end
 
   def confirm
@@ -81,7 +81,7 @@ private
     if current_corporation
       users_path
     else
-      redirect_to tops_path, notice: "ログインしている法人様しか閲覧できません。"
+      redirect_to tops_path, notice: "ログインしている法人様しか閲覧できません"
     end
   end
 end

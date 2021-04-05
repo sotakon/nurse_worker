@@ -19,7 +19,7 @@ class RumorsController < ApplicationController
         render :new
       else
         if @rumor.save
-          redirect_to rumors_path, notice: "クチコミを作成しました！"
+          redirect_to rumors_path, notice: "クチコミを作成しました"
         else
           render :new
         end
@@ -37,7 +37,7 @@ class RumorsController < ApplicationController
 
   def update
     if @rumor.update(rumor_params)
-      redirect_to rumors_path, notice: "クチコミを編集しました！"
+      redirect_to rumors_path, notice: "クチコミを編集しました"
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class RumorsController < ApplicationController
 
   def destroy
     @rumor.destroy
-    redirect_to rumors_path, notice:" クチコミを削除しました！"
+    redirect_to rumors_path, notice:" クチコミを削除しました"
   end
 
   def confirm
@@ -80,6 +80,6 @@ def user_check
   if current_user
     rumors_path
   else
-    redirect_to tops_path, notice: "ログインしている看護師様しか閲覧できません。"
+    redirect_to tops_path, notice: "ログインしている看護師様しか閲覧できません"
   end
 end
