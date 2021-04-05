@@ -27,8 +27,7 @@
 <th>スカウトした看護師(<%= @favorite_corporation.count %>人)</th>
 <td>
 <% @favorite_corporation.each do |f| %>
-  <p><%= link_to f.name, user_path(f.id) %></p>|
-  <%= link_to "削除",corporations_favorite_path(id: current_corporation.corporations_favorites.find_by(user_id: @user.ids)),method: :delete %>
+  <p><%= link_to f.name, user_path(f.id) %> | <%= link_to "削除",corporations_favorite_path(id: current_corporation.corporations_favorites.find_by(user_id: @user.ids)),method: :delete %></p>
   <% end %>
 </td>
 </tr>
