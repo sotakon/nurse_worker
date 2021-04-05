@@ -1,6 +1,6 @@
 <div class="corporation_profile">
 <% if current_corporation.image? %>
-<%= image_tag (@user.image.url),width:"300px" %>
+<%= image_tag (current_corporation.image.url),width:"300px", height:"300px" %>
 <% else %>
 <%= image_tag "default.png",width:"300px" %>
 <% end %>

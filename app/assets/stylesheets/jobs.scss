@@ -3,17 +3,30 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .card_container{
   width: 1200px;
-  margin-top: 100px;
+  margin-top: 50px;
+  text-align: center;
 }
 
-.card1{
-  float: left;
-  width: 300px;
-}
+
 .card-body{
   width: 300px;
+  height: 150px;
 }
 .h-100{
   width: 300px;
   margin: 30px;
+}
+.card-deck{
+  float: left;
+  padding-left: 110px;
+  width: 300px;
+}
+.card_image{
+    border-radius: 50%;
+}
+.card-title{
+  padding-top: px;
+}
+.card-header{
+  height: 50px;
 }

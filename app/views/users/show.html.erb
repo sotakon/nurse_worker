@@ -1,6 +1,6 @@
 <div class="profile">
 <% if @user.image? %>
-<%= image_tag (@user.image.url),width:"300px" %>
+<%= image_tag (@user.image.url),width:"300px",height:"300px" %>
 <% else %>
 <%= image_tag "default.png",width:"300px" %>
 <% end %>
@@ -43,7 +43,7 @@
 </td>
 </tr>
 <tr>
-<th>フォローしているユーザー(<%= @user.following.count %>人)</th>
+<th>フォロー(<%= @user.following.count %>人)</th>
 <td>
 <% @user.following.each do |f| %>
 <p><%= link_to f.name, user_path(f.id) %>
@@ -51,11 +51,22 @@
 <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: f.id), method: :post %></p>
 <% end %>
 <% end %>
+</td>
+</tr>
+
+<tr>
+<th>フォロワー(<%= @user.followers.count %>人)</th>
+<td>
+<% @user.followers.each do |f| %>
+<p><%= link_to f.name, user_path(f.id) %>
+<% if f.followers.find_by(id: @user.id).present? %>|
+<%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: f.id), method: :post %></p>
+<% end %>
+<% end %>
 <% end %>
 </td>
 </tr>
 </table>
-
 <% if @user == current_user %>
 <br>
 <% elsif @favorite.presence %> 
@@ -63,9 +74,6 @@
 <% elsif current_corporation %>
 <%= link_to '面接オファー', corporations_favorites_path(user_id: @user.id), method: :post, class: "btn-square-pop" %>
 <% end %>
-
-<br>
-<br>
 <% if @user == current_user %>
 <%= link_to 'プロフィール編集', edit_user_registration_path, class: "btn-square-pop" %>
 <% end %>
