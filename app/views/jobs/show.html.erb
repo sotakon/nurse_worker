@@ -1,17 +1,42 @@
-<h1>求人詳細画面</h1>
-<p>法人名: <%= @job.name %></p>
-<p>エリア: <%= @job.area %></p>
-<p>募集人数: <%= @job.people %>名</p>
-<p>求人内容: <%= @job.content %></p>
+<div class="profile">
+<% if @job.corporation.image? %>
+<%= image_tag (@job.corporation.image.url),width:"300px",height:"300px" %>
+<% else %>
+<%= image_tag "default.png",width:"300px",height:"300px" %>
+<% end %>
+<br>
+<br>
+<table>
+<tr>
+<th>勤務先名</th>
+<td><%= @job.name %></td>
+</tr>
+<th>法人名</th>
+<td><%= @job.corporation.name %></td>
+</tr>
+<tr>
+<th>エリア</th>
+<td><%= @job.area %></td>
+</tr>
+<tr>
+<th>募集人数</th>
+<td><%= @job.people %>名<td>
+</tr>
+<tr>
+<th>求人内容</th>
+<td><%= @job.content %></td>
+</tr>
+
+
   <% if @favorite.present? && current_user%>
     <p>エントリー済み</p>
   <% elsif current_corporation %>
     <br>
   <% else %>
-    <%= link_to 'エントリーする', favorites_path(job_id: @job.id), method: :post, class: 'btn btn-primary' %>
+    <%= link_to 'エントリーする', favorites_path(job_id: @job.id), method: :post, class: "btn-square-pop" %>
   <% end %>
   <% if @job.corporation == current_corporation %>
-  <%= link_to '編集', edit_job_path(@job.id) %>
-  <%= link_to '削除', job_path(@job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+  <%= link_to '編集', edit_job_path(@job.id), class: "btn-square-pop" %>
+  <%= link_to '削除', job_path(@job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: "btn-square-pop" %>
   <% end %>
-  <%= link_to '戻る', :back %>
+  <%= link_to '戻る', jobs_path, class: "btn-square-pop" %>
