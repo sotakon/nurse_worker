@@ -1,13 +1,23 @@
 <div class="profile">
-<%= image_tag (@user.image.url),width:"300px" if @user.image && @user.image.url %>
+<% if @user.image? %>
+<%= image_tag (@user.image.url),width:"300px" %>
+<% else %>
+<%= image_tag "default.png",width:"300px" %>
+<% end %>
+<br>
+<br>
 <table>
 <tr>
 <th>ユーザー名</th>
-<td><%= @user.name %></td>
+<td><p><%= @user.name %>
+<% if current_user && @user != current_user%>
+<%= render 'follow_form', user: @user, class: "btn-square-pop" %>
+<% end %></p>
+</td>
 </tr>
 <tr>
 <th>年齢</th>
-<td><%= @user.age%></td>
+<td><%= @user.age%>歳</td>
 </tr>
 <tr>
 <th>エリア</th>
@@ -25,36 +35,43 @@
 </tr>
 <tr>
 <% if @user == current_user %>
-<th>エントリーした法人</th>
+<th>エントリーした法人(<%= @favorite.count %>件)</th>
 <td>
 <% @favorite.each do |f| %>
-<p><%= link_to f.job.name, job_path(f.job.id) %>  <%= link_to "削除",favorite_path(id: current_user.favorites.find_by(job_id: @job.ids)),method: :delete %></p>
+<p><%= link_to f.name, job_path(f.id) %> | <%= link_to "削除",favorite_path(id: current_user.favorites.find_by(job_id: @job.ids)),method: :delete %>
 <% end %>
 </td>
-</table>
-<% if @user == current_user %>
-<% end %>
-<p>フォローしているユーザー</p>
+</tr>
+<tr>
+<th>フォローしているユーザー(<%= @user.following.count %>人)</th>
+<td>
 <% @user.following.each do |f| %>
 <p><%= link_to f.name, user_path(f.id) %>
-<% if f.following.find_by(id: @user.id).present? %>
-<%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: f.id), method: :post %>
+<% if f.following.find_by(id: @user.id).present? %>|
+<%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: f.id), method: :post %></p>
 <% end %>
 <% end %>
-<% elsif current_user %>
-<%= render 'follow_form', user: @user %>
+<% end %>
+</td>
+</tr>
+</table>
+
+<% if @user == current_user %>
+<br>
 <% elsif @favorite.presence %> 
 <p>面接オファー済み</p>
 <% elsif current_corporation %>
 <%= link_to '面接オファー', corporations_favorites_path(user_id: @user.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
+
 <br>
 <br>
-<%= link_to '戻る', :back, class: "btn-square-pop" %>
 <% if @user == current_user %>
 <%= link_to 'プロフィール編集', edit_user_registration_path, class: "btn-square-pop" %>
-<% if current_user.admin? %>
+<% end %>
+<% if current_corporation %>
+<% elsif current_user.admin? %>
 <%= link_to '管理画面', admins_path, class: "btn-square-pop" %>
 <% end %>
-<% end %>
+<%= link_to '戻る', :back, class: "btn-square-pop" %>
 </div>
