@@ -6,11 +6,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    @job = Job.all
+    @user = User.find(params[:id])
     if current_user
-      @user = User.find(params[:id])
-      @favorite = Favorite.all
+      favorites = Favorite.where(user_id: current_user.id).pluck(:job_id)
+      @favorite = Job.find(favorites)
     elsif current_corporation
-      @user = User.find(params[:id])
       @favorite = current_corporation.corporations_favorites.find_by(user_id: @user.id)
     else
       redirect_to tops_path, notice: "このページは閲覧できません。"

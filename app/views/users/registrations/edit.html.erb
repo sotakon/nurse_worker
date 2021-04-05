@@ -1,3 +1,4 @@
+<div class="profile">
 <h2><%= t('.プロフィール編集', resource: resource.model_name.human) %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -14,7 +15,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :"希望エリア(例:仙台市内)" %><br />
+    <%= f.label :"希望エリア" %><br />
     <%= f.text_field :area %>
   </div>
 
@@ -24,7 +25,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :自己PR・希望条件 %><br />
+    <%= f.label :自己ＰＲ %><br />
     <%= f.text_area :introduction, autocomplete: "introduction" %>
   </div>
 
@@ -40,11 +41,7 @@
   <div class="field">
     <%= f.label :新しいパスワード %> <i>(<%= t('.変更しない場合は空欄') %>)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
       <br />
-      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-    <% end %>
-  </div>
 
   <div class="field">
     <%= f.label :新しいパスワード（確認用） %><br />
@@ -52,8 +49,8 @@
   </div>
   <br>
   <div class="actions">
-    <%= f.submit ('登録') %>
+    <%= f.submit '登録', class: "btn-square-pop" %> <%= link_to t('devise.shared.links.back'), :back, class: "btn-square-pop" %>
   </div>
 <% end %>
-<%= link_to t('devise.shared.links.back'), :back %>
 
+</div>

@@ -1,16 +1,39 @@
-<h3>法人名</h3>
-<%= current_corporation.name %>
-<h3>所在地</h3>
-<%= current_corporation.area %>
-<h3>メールアドレス</h3>
-<%= current_corporation.email %>
-<h3>紹介文</h3>
-<%= current_corporation.introduction %>
-<h3>アイコン</h3>
-<%= image_tag (current_corporation.image.url) if current_corporation.image && current_corporation.image.url %>
-<%= link_to 'プロフィール編集', edit_corporation_registration_path %>
-<p>スカウトした看護師</p>
-<% @favorite_corporation.each do |f| %>
-<p>【<%= f.user.name %>】</p>
+<div class="corporation_profile">
+<% if current_corporation.image? %>
+<%= image_tag (@user.image.url),width:"300px" %>
+<% else %>
+<%= image_tag "default.png",width:"300px" %>
 <% end %>
-<%= link_to '戻る', :back %>
+<table>
+<tr>
+<br>
+<br>
+<th>法人名</th>
+<td><%= current_corporation.name %></td>
+</tr>
+<tr>
+<th>所在地</th>
+<td><%= current_corporation.area %></td>
+</tr>
+<tr>
+<th>メールアドレス</th>
+<td><%= current_corporation.email %></td>
+</tr>
+<tr>
+<th>紹介文</th>
+<td><%= current_corporation.introduction %></td>
+</tr>
+<tr>
+<th>スカウトした看護師(<%= @favorite_corporation.count %>人)</th>
+<td>
+<% @favorite_corporation.each do |f| %>
+  <p><%= link_to f.name, user_path(f.id) %> | <%= link_to "削除",corporations_favorite_path(id: current_corporation.corporations_favorites.find_by(user_id: @user.ids)),method: :delete %></p>
+  <% end %>
+</td>
+</tr>
+<tr>
+</table>
+<br>
+<br>
+<%= link_to 'プロフィール編集', edit_corporation_registration_path, class: "btn-square-pop" %>
+<%= link_to '戻る', :back, class: "btn-square-pop" %>
