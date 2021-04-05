@@ -21,7 +21,7 @@
                 
                 <h5 class="card-title">住所:<%= job.area %></h5>
                 <h5 class="card-title"><%= job.people %>名募集</h5>
-                <p class="card-text">求人内容:<%= job.content %></p>
+                <p class="card-text">求人内容:<%= job.content.truncate(30) %></p>
                 
               </div>
               <div class="card-footer">
