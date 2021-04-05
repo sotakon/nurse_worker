@@ -14,29 +14,9 @@
 
 .users table th,table td{
   text-align: center;
-  width: 25%;
+  width: 15%;
   padding: 15px 0;
 }
-
-.users table td.icon{
-  background-size: 35px;
-  background-position: left 5px center;
-  background-repeat: no-repeat;
-  padding-left: 30px;
-}
-
-.users table td.icon.bird{
-  background-image: url(icon-bird.png)
-}
-
-.users table td.icon.whale{
-  background-image: url(icon-whale.png)
-}
-
-.users table td.icon.crab{
-  background-image: url(icon-crab.png)
-}
-
 .login{
   text-align: center;
 }
@@ -96,4 +76,7 @@
 }
 .corporation_profile table{
   margin-right: 200px;
+}
+.users img{
+  border-radius: 50%;
 }

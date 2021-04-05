@@ -18,13 +18,20 @@
   </tr>
 <% @users.each do |user| %>
     <tr>
-    <td><%= user.name %></td>
-    <td><%= user.area %></td>
-    <td><%= user.age %></td>
-    <td><%= user.introduction %></td>
-    <td><%= link_to '詳細', user_path(user.id) %></td>
-  </tr>
-<% end %>
+      <td>
+      <% if user.image? %>
+      <%= image_tag (@user.image.url),width:"50px" %>
+      <% else %>
+      <%= image_tag "default.png",width:"50px" %>
+      <% end %>
+      <%= user.name %>
+      </td>
+      <td><%= user.area %></td>
+      <td><%= user.age %></td>
+      <td><%= user.introduction %></td>
+      <td><%= link_to '詳細', user_path(user.id) %></td>
+    </tr>
+      <% end %>
 </table>
 </div>
 <%= paginate @users %>
