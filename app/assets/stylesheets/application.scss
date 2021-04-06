@@ -44,7 +44,7 @@
 .nav{
   list-style:none;
   float:left;
-  padding-left: 400px;
+  padding-left: 24rem;
   padding-top: 25px;
 }
 .nav li{display:inline-block;}
@@ -70,9 +70,9 @@
 }
 .wrapper{
   min-height: 100vh;
-  position: relative;/*←相対位置*/
-  padding-bottom: 120px;/*←footerの高さ*/
-  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+  position: relative;
+  padding-bottom: 120px;
+  box-sizing: border-box;
   background-color: #F6F8FA;
 }
 footer{
@@ -81,6 +81,6 @@ footer{
   color: #fff;
   text-align: center;
   padding: 30px 0;
-position: absolute;/*←絶対位置*/
-  bottom: 0; /*下に固定*/
+  position: absolute;
+  bottom: 0;
 }
