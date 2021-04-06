@@ -4,7 +4,7 @@ class RumorsController < ApplicationController
 
   def index
     @q = Rumor.ransack(params[:q])
-    @rumors = @q.result(distinct: true).page(params[:page])
+    @rumors = @q.result(distinct: true).page(params[:page]).order(created_at: :desc)
     @users = User.all
   end
   
