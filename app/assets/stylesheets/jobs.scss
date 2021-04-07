@@ -29,3 +29,58 @@
 .job_menu{
   text-align: center;
 }
+.job-search{
+  margin-left: 7rem;
+  padding-top: 1rem;
+}
+
+.job-list table{
+  width: 800px;
+  border-collapse: collapse;
+  display: inline-block;
+  float: right;
+  margin-top: 5rem;
+  margin-right: 1rem;
+}
+
+.job-list table tr{
+  border-bottom: solid 2px white;
+}
+
+.job-list table tr:last-child{
+  border-bottom: none;
+}
+
+.job-list table th{
+  position: relative;
+  text-align: left;
+  width: 30%;
+  background-color: #52c2d0;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.job-list table th:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #52c2d0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.job-list table td{
+  text-align: left;
+  width: 70%;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px 0;
+}
+.job-btn{
+  padding-top: 1rem;
+}

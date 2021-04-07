@@ -9,11 +9,12 @@
       </ul>
     </div>
   <% end %>
+  <div class="comment-form">
   <div class="field">
-    <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit('コメント') %>
+  </div>
   </div>
 <% end %>

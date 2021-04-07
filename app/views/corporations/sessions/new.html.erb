@@ -17,8 +17,8 @@
   <% end %>
   <br>
   <div class="actions">
-    <p><%= f.submit ('ログイン'), class:"btn-square" %></p>
-    <p><%= link_to 'ゲストユーザー', jobs_guest_sign_in_path, method: :post, class:"btn-square" %></p>
+    <p><%= f.submit ('ログイン'), class: "btn-square-pop" %></p>
+    <p><%= link_to 'ゲストユーザー', jobs_guest_sign_in_path, method: :post, class: "btn-square-pop" %></p>
   </div>
   <br>
   <%= link_to t("パスワードをお忘れですか？"), new_password_path(resource_name) %>
