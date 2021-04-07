@@ -25,10 +25,7 @@
               </div>
               <div class="card-footer">
                 <a><%= link_to '詳細', rumor_path(rumor.id), class: "btn-square-pop" %></a>
-                <% if rumor.user == current_user || current_user.admin?%>
-                <%= link_to "編集", edit_rumor_path(rumor.id), class: "btn-square-pop" %>
-                <%= link_to '削除', rumor_path(rumor.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: "btn-square-pop" %>
-                <% end %>
+
               </div>
             </div>
           </div>

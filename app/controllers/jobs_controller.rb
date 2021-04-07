@@ -4,7 +4,7 @@ class JobsController < ApplicationController
 
   def index
     @q = Job.ransack(params[:q])
-    @jobs = @q.result(distinct: true).page(params[:page])
+    @jobs = @q.result(distinct: true).page(params[:page]).order(created_at: :desc)
     @corporations = Corporation.all
     @jobs = @jobs.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end

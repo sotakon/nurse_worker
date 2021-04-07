@@ -26,10 +26,6 @@
               </div>
               <div class="card-footer">
                 <a><%= link_to '詳細', job_path(job.id), class: "btn-square-pop" %></a>
-                <% if job.corporation == current_corporation || current_user && current_user.admin?%>
-                <a><%= link_to '編集', edit_job_path(job.id), class: "btn-square-pop"%></a>
-                <a><%= link_to '削除', job_path(job.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: "btn-square-pop" %></a>
-                <% end %>
               </div>
             </div>
           </div>
