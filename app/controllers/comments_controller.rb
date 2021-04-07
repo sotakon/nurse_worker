@@ -1,10 +1,8 @@
 class CommentsController < ApplicationController
   before_action :set_rumor, only: [:create, :edit, :update]
   def create
-    # Blogをパラメータの値から探し出し,Blogに紐づくcommentsとしてbuildします。
     @rumor = Rumor.find(params[:rumor_id])
     @comment = @rumor.comments.build(comment_params)
-    # クライアント要求に応じてフォーマットを変更
     respond_to do |format|
       if @comment.save
         format.js { render :index }
@@ -45,7 +43,6 @@ class CommentsController < ApplicationController
   end
 
 private
-# ストロングパラメーター
   def comment_params
     params.require(:comment).permit(:rumor_id, :content)
   end

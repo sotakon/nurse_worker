@@ -45,15 +45,45 @@
       </div>
     </div>
   </section>
+  
+  <div class="card_container">
+  <h1>最新求人</h1>
+<% @jobs.each do |job| %>
+  <div class="card-deck" style="width:25rem">
+    <div class="row text-center">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="card-header"><h3 class="card-title"><%= job.name %></h3></div>
+            <% if job.corporation.image? %>
+            <%= image_tag (job.corporation.image.url),width:"300px", height:"200px" %>
+            <% else %>
+            <%= image_tag "default2.jpg",width:"300px", height:"200px" %>
+            <% end %>
+              <div class="card-body">
+                <h5 class="card-title">住所:<%= job.area %></h5>
+                <h5 class="card-title"><%= job.people %>名募集</h5>
+                <p class="card-text">求人内容:<%= job.content.truncate(30) %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="about">
   <section class="about">
     <h1>About Nurse Worker</h1>
     <br>
     <p>
-      Nurse Workerは、医療従事者のために作成された求人情報アプリです。<br>
-      紹介料による転職失敗を無くしたいという想いから法人様と看護師様で直接連絡を取り合う事ができます。
+      Nurse Workerは、看護師様のために作成された求人情報アプリです。<br>
+      紹介料による転職失敗を無くしたいという想いから法人様からのスカウト、看護師様からのエントリーという形で直接やりとりをする事ができます。
     </p>
     <p>
-      クチコミ閲覧、メッセージ交換によって求人票だけでは分からない情報を得る事が可能なので、<br>
+      求人のクチコミ閲覧、看護師同士のメッセージ交換機能によって求人票だけでは分からない情報を得る事が可能なので、<br>
       看護師様自ら情報を集め、自分が求める職場を見つける事が可能です。
     </p>
   </section>
+  </div>

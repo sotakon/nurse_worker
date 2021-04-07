@@ -6,6 +6,6 @@ class FavoriteMailer < ApplicationMailer
 
   def favorite_corporation_mail(favorite)
     @favorite = favorite
-    mail to: @favorite.job.corporation.email, subject: "看護師エントリーのお知らせ"
+    mail to: @favorite.job.corporation.email, subject: "看護師様からエントリーがありました"
   end
 end

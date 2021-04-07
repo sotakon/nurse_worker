@@ -1,3 +1,4 @@
+<div class="job_menu">
 <%= form_with(model: @job, local: true, url: new_or_edit) do |form| %>
   <% if @job.errors.any? %>
     <h2><%= @job.errors.count %>件のエラーがあります。</h2>
@@ -7,21 +8,21 @@
     <% end %>
     </ul>
   <% end %>
-  <%= form.label :勤務先施設名 %>
+  <%= form.label :勤務先施設名 %><br />
   <%= form.text_field :name %>
   <br>
-  <%= form.label :住所 %>
+  <%= form.label :住所 %><br />
   <%= form.text_field :area %>
   <br>
-  <%= form.label :募集人数 %>
+  <%= form.label :募集人数 %><br />
   <%= form.number_field :people %>名
   <br>
-  <%= form.label :求人内容 %>
+  <%= form.label :求人内容 %><br />
   <%= form.text_area :content, value: "（例）\n業務内容:\n募集要項:\n求める人物像:\nPRポイント:" %>
   <br>
   <br>
   <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
   </br>
-  <%= form.submit %>
+  <%= form.submit '登録する', class: "btn-square-pop" %> <%= link_to '求人一覧へ戻る', jobs_path, class: "btn-square-pop" %>
   <% end %>
-  <%= link_to '求人一覧へ戻る', jobs_path %>
+  </div>

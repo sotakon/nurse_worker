@@ -8,6 +8,6 @@ class FavoritesController < ApplicationController
 
   def destroy
     @favorite = current_user.favorites.find_by(id: params[:id]).destroy
-    redirect_to jobs_path, notice: "#{@favorite.job.corporation.name}の求人をお気に入り解除しました"
+    redirect_to jobs_path, notice: "#{@favorite.job.corporation.name}の求人をリストから削除しました"
   end
 end

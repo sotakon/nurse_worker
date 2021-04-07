@@ -10,19 +10,11 @@
     <%= f.password_field :password, autocomplete: "current-password", placeholder:"パスワード" %>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
 <br>
   <div class="actions">
-    <p><%= f.submit 'ログインする', class:"btn-square" %></p>
-    <p><%= link_to 'ゲストユーザーでログイン', rumors_guest_sign_in_path, method: :post, class:"btn-square" %></p>
-    <p><%= link_to 'Googleアカウントでログイン', user_google_omniauth_authorize_path, class:"btn-square" %></p>
+    <p><%= f.submit 'ログインする', class: "btn-square-pop" %></p>
+    <p><%= link_to 'ゲストユーザーでログイン', rumors_guest_sign_in_path, method: :post, class: "btn-square-pop" %></p>
+    <p><%= link_to 'Googleアカウントでログイン', user_google_omniauth_authorize_path, class: "btn-square-pop" %></p>
   </div>
 <% end %>
-<br>
-<%= link_to ("パスワードをお忘れですか？"), new_password_path(resource_name) %><br />
 </div>

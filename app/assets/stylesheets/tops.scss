@@ -1,13 +1,12 @@
 .about {
-  /* About Achieve部分の実装 */
     font-size: 1rem;
     line-height: 2;
     margin:50px auto;
     background-color: #F6F8FA;
     text-align: center;
     color: #6C6C6C;
+    padding-top: 13rem;
   }
-  /* ここから */
   .function {
     background-color: #F6F8FA;
     width: 100%;
@@ -31,7 +30,6 @@
     display: inline-block;
     margin: 50px;
   }
-  
   .f-images{
     width: 170px;
     height: 170px;
@@ -41,4 +39,11 @@
     width: 100%;
     height: 35rem;
     object-fit: cover;
+  }
+  .card_container h1{
+    font-size: 3rem;
+    position:relative;
+    text-align: center;
+    color: #6C6C6C;
+    padding-left: 4rem;
   }
