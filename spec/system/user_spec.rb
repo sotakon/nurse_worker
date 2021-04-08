@@ -66,10 +66,21 @@ RSpec.describe 'ユーザー機能', type: :system do
       it 'クチコミが表示される' do
         visit new_rumor_path
         fill_in 'rumor[name]', with: 'テスト'
-        fill_in 'rumor[area]', with: '20'
-        fill_in 'user[area]', with: 'テスト'
-        fill_in 'user[email]', with: 'test@gmail.com'
+        fill_in 'rumor[area]', with: 'テスト'
+        click_on '登録する'
+        click_on '登録する'
+        expect(page).to have_content 'テスト'
+      end
+    end
 
+    context 'ユーザーがユクチコミを投稿した場合' do
+      it 'クチコミが表示される' do
+        visit new_rumor_path
+        fill_in 'rumor[name]', with: 'テスト'
+        fill_in 'rumor[area]', with: 'テスト'
+        click_on '登録する'
+        click_on '登録する'
+        expect(page).to have_content 'テスト'
       end
     end
   end
