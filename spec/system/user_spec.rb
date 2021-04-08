@@ -86,7 +86,5 @@ RSpec.describe 'ユーザー機能', type: :system do
         expect(page).to have_content 'テスト'
       end
     end
-
-
   end
 end
