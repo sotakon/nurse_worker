@@ -60,7 +60,7 @@ class RumorsController < ApplicationController
       user.age = 22
       user.area = "ゲスト"
       user.admin = true
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      user.uid = SecureRandom.uuid
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザー(看護師)としてログインしました。'

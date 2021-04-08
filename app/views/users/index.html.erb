@@ -27,7 +27,7 @@
       </td>
       <td><%= user.area %></td>
       <td><%= user.age %></td>
-      <td><%= user.introduction.truncate(20) %></td>
+      <td><%= user.introduction %></td>
       <td><%= link_to '詳細', user_path(user.id), class: "btn-square-pop" %></td>
     </tr>
       <% end %>
