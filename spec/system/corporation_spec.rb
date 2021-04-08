@@ -55,36 +55,29 @@ RSpec.describe 'ユーザー機能（法人側）', type: :system do
       end
     end
 
-  #   context 'ユーザーがユーザー一覧を選択した場合' do
-  #     it 'ユーザー一覧が表示される' do
-  #       click_on 'ユーザー一覧'
-  #       expect(page).to have_content 'テスト2'
-  #     end
-  #   end
+    context 'ユーザーが求人を投稿した場合' do
+      it '求人が表示される' do
+        visit new_job_path
+        fill_in 'job[name]', with: 'テスト'
+        fill_in 'job[area]', with: 'テスト'
+        click_on '登録する'
+        click_on '登録する'
+        expect(page).to have_content 'テスト'
+      end
+    end
 
-  #   context 'ユーザーがユクチコミを投稿した場合' do
-  #     it 'クチコミが表示される' do
-  #       visit new_rumor_path
-  #       fill_in 'rumor[name]', with: 'テスト'
-  #       fill_in 'rumor[area]', with: 'テスト'
-  #       click_on '登録する'
-  #       click_on '登録する'
-  #       expect(page).to have_content 'テスト'
-  #     end
-  #   end
-
-  #   context 'ユーザーがユクチコミをワード検索した場合' do
-  #     it '検索したクチコミが表示される' do
-  #       visit new_rumor_path
-  #       fill_in 'rumor[name]', with: 'テスト'
-  #       fill_in 'rumor[area]', with: 'テスト'
-  #       click_on '登録する'
-  #       click_on '登録する'
-  #       visit rumors_path
-  #       fill_in 'q[name_or_area_or_content_cont]', with: 'テスト'
-  #       click_on 'commit'
-  #       expect(page).to have_content 'テスト'
-  #     end
-  #   end
+    context 'ユーザーが求人をワード検索した場合' do
+      it '検索した求人が表示される' do
+        visit new_job_path
+        fill_in 'job[name]', with: 'テスト'
+        fill_in 'job[area]', with: 'テスト'
+        click_on '登録する'
+        click_on '登録する'
+        visit jobs_path
+        fill_in 'q[name_or_area_or_content_cont]', with: 'テスト'
+        click_on 'commit'
+        expect(page).to have_content 'テスト'
+      end
+    end
   end
 end

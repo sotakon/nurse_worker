@@ -62,7 +62,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
     end
 
-    context 'ユーザーがユクチコミを投稿した場合' do
+    context 'ユーザーがクチコミを投稿した場合' do
       it 'クチコミが表示される' do
         visit new_rumor_path
         fill_in 'rumor[name]', with: 'テスト'
@@ -73,7 +73,7 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
     end
 
-    context 'ユーザーがユクチコミをワード検索した場合' do
+    context 'ユーザーがクチコミをワード検索した場合' do
       it '検索したクチコミが表示される' do
         visit new_rumor_path
         fill_in 'rumor[name]', with: 'テスト'
