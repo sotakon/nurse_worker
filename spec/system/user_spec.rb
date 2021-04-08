@@ -73,15 +73,20 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
     end
 
-    context 'ユーザーがユクチコミを投稿した場合' do
-      it 'クチコミが表示される' do
+    context 'ユーザーがユクチコミをワード検索した場合' do
+      it '検索したクチコミが表示される' do
         visit new_rumor_path
         fill_in 'rumor[name]', with: 'テスト'
         fill_in 'rumor[area]', with: 'テスト'
         click_on '登録する'
         click_on '登録する'
+        visit rumors_path
+        fill_in 'q[name_or_area_or_content_cont]', with: 'テスト'
+        click_on 'commit'
         expect(page).to have_content 'テスト'
       end
     end
+
+
   end
 end
