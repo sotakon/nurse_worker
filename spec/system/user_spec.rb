@@ -30,18 +30,17 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
     end
   end
-
   describe 'ユーザー編集機能' do
     before do
-      @user = FactoryBot.create(:user)
+      @second_user = FactoryBot.create(:second_user)
       visit new_user_session_path
-      fill_in 'user[email]', with: 'test@gmail.com'
-      fill_in 'user_password', with: '123456'
+      fill_in 'user[email]', with: 'testtest@test.com'
+      fill_in 'user_password', with: '234567'
       click_on 'ログインする'
     end
     context 'ユーザーがログインしている場合' do
       it 'マイページへ飛べる' do
-        visit user_path(@user.id)
+        visit user_path(@second_user.id)
         expect(page).to have_content 'テスト'
       end
     end
@@ -51,10 +50,16 @@ RSpec.describe 'ユーザー機能', type: :system do
         visit edit_user_registration_path
         fill_in 'user[name]', with: '名前変更'
         click_on '登録'
-        visit user_path(@user.id)
+        visit user_path(@second_user.id)
         expect(page).to have_content '名前変更'
       end
     end
-    
+
+    context 'ユーザーがユーザー一覧を選択した場合' do
+      it 'ユーザー一覧が表示される' do
+        click_on 'ユーザー一覧'
+        expect(page).to have_content 'テスト2'
+      end
+    end
   end
 end
