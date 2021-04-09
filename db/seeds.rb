@@ -29,7 +29,7 @@ Corporation.create!(
     area: area,
     age: age,
     email: email,
-    introduction: '（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:',
+    introduction: "（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:",
     password: '123456',
     password_confirmation: '123456',
     uid: uid
@@ -47,7 +47,7 @@ end
     corporation_id: 1,
     name: "#{name}病院",
     area: area,
-    content: '（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:'
+    content: "（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:"
   )
 end
 
@@ -63,6 +63,6 @@ end
     name: "#{name}病院",
     area: area,
     season: season,
-    content: '（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:'
+    content: "（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:"
   )
 end
