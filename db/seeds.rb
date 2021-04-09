@@ -48,7 +48,7 @@ end
     name: "#{name}病院",
     area: area,
     people: people,
-    content: "（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:"
+    content: "（例）\n業務内容:\n募集要項:\n求める人物像:\nPRポイント:"
   )
 end
 
@@ -64,6 +64,6 @@ end
     name: "#{name}病院",
     area: area,
     season: season,
-    content: "（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:"
+    content: "（例）\n労働環境:\n待遇:\nキャリアアップ:\n改善した方が良い点:"
   )
 end

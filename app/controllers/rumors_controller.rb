@@ -63,7 +63,7 @@ class RumorsController < ApplicationController
       user.uid = SecureRandom.uuid
     end
     sign_in user
-    redirect_to root_path, notice: 'ゲストユーザー(看護師)としてログインしました。'
+    redirect_to user_path(current_user.id), notice: 'ゲストユーザー(看護師)としてログインしました。'
   end
   
 private
