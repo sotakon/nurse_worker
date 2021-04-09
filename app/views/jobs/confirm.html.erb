@@ -13,7 +13,11 @@
   <br>
   <p>求人内容:<%= @job.content %></p>
   <br>
-  
+  <p>
+  <% @job.labels.each do |label| %>
+    施設形態:<%= label.name %>
+  <% end %>
+  </p>
   <%= form.submit  "登録する" %>
   <%= form.submit "戻る", name: 'back' %>
 <% end %>
