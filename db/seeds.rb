@@ -47,6 +47,7 @@ end
     corporation_id: 1,
     name: "#{name}病院",
     area: area,
+    people: people,
     content: "（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:"
   )
 end
