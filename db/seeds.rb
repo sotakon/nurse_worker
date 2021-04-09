@@ -39,14 +39,30 @@ end
 20.times do |n|
   address = Gimei.address
 
-  name = Gimei.town.kanji
+  name = Gimei.last.kanji
   area = address.kanji
   people = rand(1..3)
 
   Job.create!(
-    corporation_id: 2,
+    corporation_id: 1,
     name: "#{name}病院",
     area: area,
+    content: '（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:'
+  )
+end
+
+20.times do |n|
+  address = Gimei.address
+
+  name = Gimei.last.kanji
+  area = address.kanji
+  season = rand(1..20)
+
+  Rumor.create!(
+    user_id: 1,
+    name: "#{name}病院",
+    area: area,
+    season: season,
     content: '（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:'
   )
 end
