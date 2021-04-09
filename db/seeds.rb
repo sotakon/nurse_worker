@@ -5,6 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Corporation.create!(
+  name: 'test',
+  area: 'test',
+  email: 'test@test.jp',
+  password: '123456',
+  password_confirmation: '123456'
+  )
+
 20.times do |n|
   gimei = Gimei.female
   address = Gimei.address
@@ -21,8 +29,24 @@
     area: area,
     age: age,
     email: email,
+    introduction: '（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:',
     password: '123456',
     password_confirmation: '123456',
     uid: uid
+  )
+end
+
+20.times do |n|
+  address = Gimei.address
+
+  name = Gimei.town.kanji
+  area = address.kanji
+  people = rand(1..3)
+
+  Job.create!(
+    corporation_id: 2,
+    name: "#{name}病院",
+    area: area,
+    content: '（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:'
   )
 end
