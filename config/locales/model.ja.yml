@@ -3,6 +3,7 @@ ja:
     models:
       blog: ブログ
       user: ユーザー
+      corporation: ユーザー
     attributes:
       blog:
         title: タイトル
@@ -17,3 +18,8 @@ ja:
         remember_me: ログインを記憶
         age: 年齢
         area: エリア
+      corporation:
+        name: 名前
+        area: エリア
+        email: メールアドレス
+        password: パスワード
