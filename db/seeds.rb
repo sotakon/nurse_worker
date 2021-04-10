@@ -57,7 +57,7 @@ end
 
   name = Gimei.last.kanji
   area = address.kanji
-  season = rand(1..20)
+  season = rand(1970..2020)
 
   Rumor.create!(
     user_id: 1,
