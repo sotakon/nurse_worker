@@ -7,7 +7,7 @@
   <%= form.hidden_field :content %>
   <p>タイトル:<%= @rumor.name %></p>
   <p>本文:<%= @rumor.area %></p>
-  <p>働いていた時期:<%= @rumor.season %></p>
+  <p>働いていた時期:西暦<%= @rumor.season %>年</p>
   <p>クチコミ:<%= @rumor.content %></p>
   <%= form.submit  "登録する" %>
   <%= form.submit "戻る", name: 'back' %>

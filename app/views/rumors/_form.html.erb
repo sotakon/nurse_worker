@@ -13,7 +13,7 @@
   <%= form.label :エリア %><br />
   <%= form.text_field :area %><br />
   <%= form.label :働いていた時期 %><br />
-  <%= form.number_field :season %>年前<br />
+  西暦<%= form.number_field :season %>年<br />
   <%= form.label :クチコミ %><br />
   <%= form.text_area :content, value: "（例）\n労働環境:\n待遇:\nキャリアアップ:\n改善した方が良い点:" %><br />
   <%= form.submit %>
