@@ -13,16 +13,14 @@ class RumorsController < ApplicationController
   end
 
   def create
-    def create
-      @rumor = current_user.rumors.build(rumor_params)
-      if params[:back]
-        render :new
+    @rumor = current_user.rumors.build(rumor_params)
+    if params[:back]
+      render :new
+    else
+      if @rumor.save
+        redirect_to rumors_path, notice: "クチコミを作成しました"
       else
-        if @rumor.save
-          redirect_to rumors_path, notice: "クチコミを作成しました"
-        else
-          render :new
-        end
+        render :new
       end
     end
   end
@@ -74,7 +72,6 @@ private
   def set_rumor
     @rumor = Rumor.find(params[:id])
   end
-end
 
 def user_check
   if current_user
@@ -82,4 +79,5 @@ def user_check
   else
     redirect_to tops_path, notice: "ログインしている看護師様しか閲覧できません"
   end
+end
 end

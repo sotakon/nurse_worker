@@ -76,7 +76,6 @@ private
     @job = Job.find(params[:id])
   end
 
-  private
   def corporation_check
     if current_corporation
       users_path

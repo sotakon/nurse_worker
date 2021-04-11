@@ -36,14 +36,12 @@
 .profile{
   text-align: center;
 }
-
 .profile img{
   border-radius: 50%;
   float: left;
   margin-left: 7rem;
   margin-top: 6rem;
 }
-
 .btn-square-pop {
   position: relative;
   display: inline-block;
@@ -63,7 +61,6 @@ p :hover{
   text-decoration: underline;
   color: #0056b3;
 }
-
 .btn-square-pop:active {
   border-bottom: solid 2px #fd9535;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
@@ -87,7 +84,6 @@ p :hover{
   text-align: left;
   padding-left: 10px;
 }
-
 .tab-wrap {
 display: flex;
 flex-wrap: wrap;
@@ -126,7 +122,6 @@ height: 0;
 overflow: hidden;
 opacity: 0;
 }
-/* アクティブなタブ */
 .tab-switch:checked+.tab-label {
 background: DeepSkyBlue;
 }
@@ -162,11 +157,9 @@ h2:after {
   border-top: solid 2px #000;
   border-bottom: solid 2px #000;
 }
-
 h2:before {
   left: 0;
 }
-
 h2:after {
   right: 0;
 }
