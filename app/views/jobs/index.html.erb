@@ -9,7 +9,7 @@
   <%= form.select("label_id", Label.pluck(:name, :id), include_blank: t('helpers.select.施設形態')) %>
 
   <%= f.search_field :name_or_area_or_content_cont, placeholder:"フリーワード検索" %>
-  <%= f.submit "検索", class: "btn-square-pop" %>
+  <%= f.submit "検索", class: "btn-square-pop", id: "btn" %>
   <% end %>
 <% end %>
 </div>
