@@ -23,7 +23,7 @@
         <% if user_signed_in? && current_user %>
           <li><%= link_to 'マイページ', user_path(current_user.id) %></li>
           <li><%= link_to "求人一覧", jobs_path %></li>
-          <li><%= link_to "ユーザー一覧", users_path %></li>
+          <li><%= link_to "看護師一覧", users_path %></li>
           <li><%= link_to "クチコミ一覧", rumors_path %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         <% elsif current_corporation %>
@@ -32,10 +32,8 @@
           <li><%= link_to "求人一覧", jobs_path %></li>
           <li><%= link_to "ログアウト", destroy_corporation_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "<ユーザー登録>新規登録", new_user_registration_path %></li>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
-          <li><%= link_to "<法人登録>新規登録", new_corporation_registration_path %></li>
-          <li><%= link_to "ログイン", new_corporation_session_path %></li>
+          <li id="nurse"><%= link_to "看護師登録", new_user_registration_path %>|<%= link_to "ログイン", new_user_session_path %></li>
+          <li id="corpo"><%= link_to "法人登録", new_corporation_registration_path %>|<%= link_to "ログイン", new_corporation_session_path %></li>
         <% end %>
       </ul>
     </div>
@@ -46,7 +44,7 @@
       <%= yield %>
     </div>
     <footer>
-      <p>(c)copy right</p>
+      <p>© 2021 - Nurse Worker - All Rights Reserved.</p>
     </footer>
   </div>
   </body>
