@@ -2,10 +2,13 @@
 <div class="job-search">
   <%= search_form_for @q do |f| %>
     <% if current_corporation %>
-    <%= link_to '求人投稿', new_job_path, class: "btn-square-pop" %>
+    <p><%= link_to '求人投稿', new_job_path, class: "btn-square-pop" %></p>
     <% end %>
+    <%= form_with(model: @job, url: jobs_path, method: :get, local: true) do |f| %>
+    <%= f.select("label_id", Label.pluck(:name, :id), { include_blank: '施設形態' }) %>
     <%= f.search_field :name_or_area_or_content_cont, placeholder:"フリーワード検索" %>
     <%= f.submit "検索", class: "btn-square-pop" %>
+    <% end %>
   <% end %>
 </div>
 <div class="card_container">
@@ -22,6 +25,11 @@
               <% end %>
                 <div class="card-body">
                   <h5 class="card-title">住所:<%= job.area %></h5>
+                  <p class="card-text">
+                    <% job.labels.each do |label| %>
+                    <%= label.name %>
+                    <% end %>
+                  </p>
                   <p class="card-title"><%= job.people %>名募集</p>
                   <p class="card-text">求人内容:<%= job.content.truncate(30) %></p>
                 </div>
