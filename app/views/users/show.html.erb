@@ -75,9 +75,9 @@
   <% if @user == current_user %>
     <br>
   <% elsif current_corporation && @favorite.presence %> 
-    <p class= "btn-square-pop">面接オファー済み</p>
+    <p class= "btn-square-pop">スカウト済み</p>
   <% elsif current_corporation %>
-    <%= link_to '面接オファー', corporations_favorites_path(user_id: @user.id), method: :post, class: "btn-square-pop" %>
+    <%= link_to 'スカウト', corporations_favorites_path(user_id: @user.id), method: :post, class: "btn-square-pop" %>
   <% end %>
   <% if @user == current_user %>
     <%= link_to 'プロフィール編集', edit_user_registration_path, class: "btn-square-pop" %>
