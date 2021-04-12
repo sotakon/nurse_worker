@@ -6,11 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Corporation.create!(
-  name: 'test',
-  area: 'test',
+  name: '医療法人テスト',
+  area: '宮城県仙台市',
   email: 'test@test.jp',
   password: '123456',
-  password_confirmation: '123456'
+  password_confirmation: '123456',
+  image: open("app/assets/images/hp2.jpg")
   )
 
 20.times do |n|
@@ -19,7 +20,7 @@ Corporation.create!(
 
   name = gimei.kanji
   area = address.kanji
-  age = rand(20..60)
+  age = rand(22..60)
   email = Faker::Internet.email
   uid = SecureRandom.uuid
 
@@ -42,10 +43,12 @@ end
   name = Gimei.last.kanji
   area = address.kanji
   people = rand(1..3)
+  type = rand(3)
+  facility = ["病院", "クリニック", "老人ホーム"]
 
   Job.create!(
     corporation_id: 1,
-    name: "#{name}病院",
+    name: "#{name}#{facility[type]}",
     area: area,
     people: people,
     content: "（例）\n業務内容:\n募集要項:\n求める人物像:\nPRポイント:"
@@ -57,11 +60,13 @@ end
 
   name = Gimei.last.kanji
   area = address.kanji
-  season = rand(1970..2020)
+  season = rand(2000..2020)
+  type = rand(3)
+  facility = ["病院", "クリニック", "老人ホーム"]
 
   Rumor.create!(
     user_id: 1,
-    name: "#{name}病院",
+    name: "#{name}#{facility[type]}",
     area: area,
     season: season,
     content: "（例）\n労働環境:\n待遇:\nキャリアアップ:\n改善した方が良い点:"
