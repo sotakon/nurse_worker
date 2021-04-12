@@ -1,39 +1,37 @@
-
 <div class="tab-wrap">
-    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">クチコミ</label>
-    <div class="tab-content">
-    <table>
-    <tr>
-    <th>勤務先名</th>
-    <td><%= @rumor.name %></td>
-    </tr>
-    <th>エリア</th>
-    <td><%= @rumor.area %></td>
-    </tr>
-    <tr>
-    <th>働いていた時期</th>
-    <td><%= @rumor.season %>年</td>
-    </tr>
-    <tr>
-    <th>クチコミ</th>
-    <td><%= @rumor.content %></td>
-    </tr>
-
-    </table>
-    </div>
-    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02">コメント(<%= @rumor.comments.count %>)</label>
-    <div class="tab-content">
-    <div id="comments_area">
-    <%= render partial: 'comments/index', locals: { comments: @comments, rumor: @rumor } %>
-    
-    <%= render partial: 'comments/form', locals: { comment: @comment, rumor: @rumor } %>
-    </div>
-    </div>
+	<input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">クチコミ</label>
+	<div class="tab-content">
+		<table>
+			<tr>
+				<th>勤務先名</th>
+				<td><%= @rumor.name %></td>
+			</tr>
+				<th>エリア</th>
+				<td><%= @rumor.area %></td>
+			</tr>
+			<tr>
+				<th>働いていた時期</th>
+				<td><%= @rumor.season %>年</td>
+			</tr>
+			<tr>
+				<th>クチコミ</th>
+				<td><%= @rumor.content %></td>
+			</tr>
+		</table>
+	</div>
+	<input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02">コメント(<%= @rumor.comments.count %>)</label>
+	<div class="tab-content">
+		<div id="comments_area">
+			<%= render partial: 'comments/index', locals: { comments: @comments, rumor: @rumor } %>
+			<%= render partial: 'comments/form', locals: { comment: @comment, rumor: @rumor } %>
+		</div>
+	</div>
 </div>
+
 <div class="rumor-btn">
-<% if current_user == @rumor.user %>
-<%= link_to '編集', edit_rumor_path(@rumor), class: "btn-square-pop" %>
-<%= link_to '削除', rumor_path(@rumor.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: "btn-square-pop" %>
-<% end %>
-<%= link_to '戻る', rumors_path, class: "btn-square-pop" %>
+	<% if current_user == @rumor.user %>
+		<%= link_to '編集', edit_rumor_path(@rumor), class: "btn-square-pop" %>
+		<%= link_to '削除', rumor_path(@rumor.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: "btn-square-pop" %>
+	<% end %>
+	<%= link_to '戻る', rumors_path, class: "btn-square-pop" %>
 </div>

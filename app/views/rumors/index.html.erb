@@ -22,9 +22,9 @@
                 <p class="card-title">働いていた時期:<%= rumor.season %>年</p>
                 <p class="card-title">クチコミ:<%= rumor.content.truncate(30) %></p>
               </div>
-                <div class="card-footer">
-                  <a><%= link_to '詳細', rumor_path(rumor.id), class: "btn-square-pop" %></a>
-                </div>
+              <div class="card-footer">
+                <a><%= link_to '詳細', rumor_path(rumor.id), class: "btn-square-pop" %></a>
+              </div>
             </div>  
           </div>
       </div>
