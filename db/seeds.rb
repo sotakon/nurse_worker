@@ -23,14 +23,19 @@ Corporation.create!(
   age = rand(22..60)
   email = Faker::Internet.email
   uid = SecureRandom.uuid
-
+  type = rand(3)
+  subject = ["内科", "外科", "精神科"]
+  work = ["日勤のみ", "日勤と夜勤", "パート"]
+  advantages = ["急性期看護", "高齢者看護", "管理者経験"]
 
   User.create!(
     name: name,
     area: area,
     age: age,
     email: email,
-    introduction: "（例）\n経験年数:\n経験科目:\n転職理由:\n転職先に求める事:",
+    introduction: "【経験科目】#{subject[type]}\n
+                   【希望の勤務形態】#{work[type]}\n
+                   【活かせるスキル】#{advantages[type]}",
     password: '123456',
     password_confirmation: '123456',
     uid: uid
