@@ -39,6 +39,7 @@
   float: right;
   margin-top: 5rem;
   margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 .job-list table tr{
   border-bottom: solid 2px white;
@@ -85,6 +86,7 @@
   float: left;
   margin-left: 7rem;
   margin-top: 6rem;
+  margin-bottom: 5rem;
 }
 #header-color{
   background-color: #919191;
@@ -93,4 +95,7 @@
 #footer-color{
   background-color: #919191;
   color: white;
+}
+.job-profile btn-square-pop{
+  padding-top:2rem;
 }
