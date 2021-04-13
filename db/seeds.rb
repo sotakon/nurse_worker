@@ -33,9 +33,9 @@ Corporation.create!(
     area: area,
     age: age,
     email: email,
-    introduction: "【経験科目】#{subject[type]}\n
-                   【希望の勤務形態】#{work[type]}\n
-                   【活かせるスキル】#{advantages[type]}",
+    introduction: "これまで#{subject[type]}を中心に勤務してきました。\n
+                   次の職場では#{work[type]}の働き方にて転職を希望しております。\n
+                   #{advantages[type]}の経験をいかしてお力になりたいと考えております。",
     password: '123456',
     password_confirmation: '123456',
     uid: uid
@@ -50,13 +50,18 @@ end
   people = rand(1..3)
   type = rand(3)
   facility = ["病院", "クリニック", "老人ホーム"]
+  subject = ["内科", "外科", "精神科"]
+  work = ["日勤のみ", "日勤と夜勤", "パート"]
+  advantages = ["急性期看護", "高齢者看護", "管理者経験"]
 
   Job.create!(
     corporation_id: 1,
     name: "#{name}#{facility[type]}",
     area: area,
     people: people,
-    content: "（例）\n業務内容:\n募集要項:\n求める人物像:\nPRポイント:"
+    content: "#{subject[type]}に力を入れて患者様の診察を行っております。\n
+              現在#{work[type]}の働き方にて勤務していただける方を募集しております。\n
+              #{advantages[type]}の経験がある方歓迎します。",
   )
 end
 
