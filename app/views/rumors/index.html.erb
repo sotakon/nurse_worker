@@ -16,14 +16,14 @@
       <div class="row text-center">
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card h-100">
-            <div class="card-header">
+            <div class="card-header", id="header-color">
               <h3 class="card-title"><%= rumor.name %></h3></div>
                 <div class="card-body">
-                  <h5 class="card-title">住所:<%= rumor.area %></h5>
+                  <h5 class="card-title">住所:<%= rumor.area.truncate(10) %></h5>
                   <p class="card-title">働いていた時期:<%= rumor.season %>年</p>
                   <p class="card-title">クチコミ:<%= rumor.content.truncate(30) %></p>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer", id="footer-color">
                   <a><%= link_to 'クチコミを見る', rumor_path(rumor.id), class: "btn-square-pop" %></a>
                 </div>
               </div>  

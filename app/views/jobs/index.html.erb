@@ -24,7 +24,7 @@
                 <%= image_tag "default2.jpg",width:"300px", height:"200px" %>
               <% end %>
                 <div class="card-body">
-                  <h5 class="card-title">住所:<%= job.area %></h5>
+                  <h5 class="card-title">住所:<%= job.area.truncate(10) %></h5>
                   <p class="card-text">
                     <% job.labels.each do |label| %>
                     <%= label.name %>
