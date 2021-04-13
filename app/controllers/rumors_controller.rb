@@ -54,9 +54,12 @@ class RumorsController < ApplicationController
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.name = "ゲストユーザー（看護師）"
+      user.name = "ゲスト（看護師）"
       user.age = 22
       user.area = "ゲスト"
+      introduction = "これまで内科を中心に勤務してきました。
+                      次の職場では日勤のみの働き方にて転職を希望しております。
+                      管理者の経験をいかしてお力になりたいと考えております。"
       user.admin = true
       user.uid = SecureRandom.uuid
     end
