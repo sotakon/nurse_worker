@@ -1,39 +1,47 @@
 
 <div class="job-search">
-<%= search_form_for @q do |f| %>
-  <% if current_corporation %>
-  <%= link_to '求人投稿', new_job_path, class: "btn-square-pop" %>
+  <%= search_form_for @q do |f| %>
+    <% if current_corporation %>
+    <p><%= link_to '求人投稿', new_job_path, class: "btn-square-pop" %></p>
+    <% end %>
+    <%= form_with(model: @job, url: jobs_path, method: :get, local: true) do |f| %>
+    <%= f.select("label_id", Label.pluck(:name, :id), { include_blank: '施設形態' }) %>
+    <%= f.search_field :name_or_area_or_content_cont, placeholder:"フリーワード検索" %>
+    <%= f.submit "検索", class: "btn-square-pop" %>
+    <% end %>
   <% end %>
-  <%= f.search_field :name_or_area_or_content_cont, placeholder:"フリーワード検索" %>
-  <%= f.submit "検索", class: "btn-square-pop" %>
-<% end %>
 </div>
 <div class="card_container">
-<% @jobs.each do |job| %>
-  <div class="card-deck" style="width:25rem">
-    <div class="row text-center">
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <div class="card-header"><h3 class="card-title"><%= job.name %></h3></div>
-            <% if job.corporation.image? %>
-            <%= image_tag (job.corporation.image.url),width:"300px", height:"200px" %>
-            <% else %>
-            <%= image_tag "default2.jpg",width:"300px", height:"200px" %>
-            <% end %>
-              <div class="card-body">
-                <h5 class="card-title">住所:<%= job.area %></h5>
-                <p class="card-title"><%= job.people %>名募集</p>
-                <p class="card-text">求人内容:<%= job.content.truncate(30) %></p>
-              </div>
-              <div class="card-footer">
-                <a><%= link_to '詳細', job_path(job.id), class: "btn-square-pop" %></a>
+  <% @jobs.each do |job| %>
+    <div class="card-deck" style="width:25rem">
+      <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-header"><h3 class="card-title"><%= job.name %></h3></div>
+              <% if job.corporation.image? %>
+                <%= image_tag (job.corporation.image.url),width:"300px", height:"200px" %>
+              <% else %>
+                <%= image_tag "default2.jpg",width:"300px", height:"200px" %>
+              <% end %>
+                <div class="card-body">
+                  <h5 class="card-title">住所:<%= job.area.truncate(10) %></h5>
+                  <p class="card-text">
+                    <% job.labels.each do |label| %>
+                    <%= label.name %>
+                    <% end %>
+                  </p>
+                  <p class="card-title"><%= job.people %>名募集</p>
+                  <p class="card-text">求人内容:<%= job.content.truncate(30) %></p>
+                </div>
+                <div class="card-footer">
+                  <a><%= link_to '求人詳細', job_path(job.id), class: "btn-square-pop" %></a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 <%= paginate @jobs %>
 
 

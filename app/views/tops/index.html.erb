@@ -1,89 +1,90 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-<ol class="carousel-indicators">
-  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-</ol>
-<div class="carousel-inner">
-  <div class="carousel-item active">
-    <%= image_tag "main3", class: "main_images", alt:"..."%>
-  </div>
-  <div class="carousel-item">
-    <%= image_tag "main1", class: "main_images", alt:"..."%>
-  </div>
-  <div class="carousel-item">
-    <%= image_tag "main2", class: "main_images", alt:"..."%>
-  </div>
-</div>
-<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  <span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  <span class="sr-only">Next</span>
-</a>
-</div>
-  <section class="function">
-    <h1>SERVICE</h1>
-    <div class="function-images">
-      <div class="function-image">
-        <%= image_tag "function1", class: "f-images"%>
-        <h3>エントリー機能</h3>
-      </div>
-      <div class="function-image">
-        <%= image_tag "hp", class: "f-images"%>
-        <h3>スカウト機能</h3>
-      </div>
-      <div class="function-image">
-        <%= image_tag "rumor", class: "f-images"%>
-        <h3>クチコミ機能</h3>
-      </div>
-      <div class="function-image">
-        <%= image_tag "msg", class: "f-images"%>
-        <h3>メッセージ機能</h3>
-      </div>
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag "main3", class: "main_images", alt:"..."%>
     </div>
-  </section>
+    <div class="carousel-item">
+      <%= image_tag "main1", class: "main_images", alt:"..."%>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "main2", class: "main_images", alt:"..."%>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<section class="function">
+  <h1>SERVICE</h1>
+  <div class="function-images">
+    <div class="function-image">
+      <%= image_tag "function1", class: "f-images"%>
+      <h3>エントリー機能</h3>
+    </div>
+    <div class="function-image">
+      <%= image_tag "hp", class: "f-images"%>
+      <h3>スカウト機能</h3>
+    </div>
+    <div class="function-image">
+      <%= image_tag "rumor", class: "f-images"%>
+      <h3>クチコミ機能</h3>
+    </div>
+    <div class="function-image">
+      <%= image_tag "msg", class: "f-images"%>
+      <h3>メッセージ機能</h3>
+    </div>
+  </div>
+</section>
   
-  <div class="card_container">
+<div class="card_container">
   <h1>最新求人</h1>
-<% @jobs.each do |job| %>
-  <div class="card-deck" style="width:25rem">
-    <div class="row text-center">
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <div class="card-header"><h3 class="card-title"><%= job.name %></h3></div>
-            <% if job.corporation.image? %>
-            <%= image_tag (job.corporation.image.url),width:"300px", height:"200px" %>
-            <% else %>
-            <%= image_tag "default2.jpg",width:"300px", height:"200px" %>
-            <% end %>
-              <div class="card-body">
-                <h5 class="card-title">住所:<%= job.area %></h5>
-                <h5 class="card-title"><%= job.people %>名募集</h5>
-                <p class="card-text">求人内容:<%= job.content.truncate(30) %></p>
+  <% @jobs.each do |job| %>
+    <div class="card-deck" style="width:25rem">
+      <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-header"><h3 class="card-title"><%= job.name %></h3></div>
+              <% if job.corporation.image? %>
+              <%= image_tag (job.corporation.image.url),width:"300px", height:"200px" %>
+              <% else %>
+              <%= image_tag "default2.jpg",width:"300px", height:"200px" %>
+              <% end %>
+                <div class="card-body">
+                  <h5 class="card-title">住所:<%= job.area %></h5>
+                  <h5 class="card-title"><%= job.people %>名募集</h5>
+                  <p class="card-text">求人内容:<%= job.content.truncate(30) %></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
   <br>
   <br>
   <br>
   <div class="about">
-  <section class="about">
-    <h1>About Nurse Worker</h1>
-    <br>
-    <p>
-      Nurse Workerは、看護師様のために作成された求人情報アプリです。<br>
-      紹介料による転職失敗を無くしたいという想いから法人様からのスカウト、看護師様からのエントリーという形で直接やりとりをする事ができます。
-    </p>
-    <p>
-      求人のクチコミ閲覧、看護師同士のメッセージ交換機能によって求人票だけでは分からない情報を得る事が可能なので、<br>
-      看護師様自ら情報を集め、自分が求める職場を見つける事が可能です。
-    </p>
-  </section>
+    <section class="about">
+      <h1>About Nurse Worker</h1>
+      <br>
+      <p>
+        Nurse Workerは、医療従事者様のために作成された求人情報アプリです。<br>
+        紹介料による転職失敗を無くしたいという想いから法人様からのスカウト、看護師様からのエントリーという形で直接やりとりをする事ができます。
+      </p>
+      <p>
+        求人のクチコミ閲覧、看護師同士のメッセージ交換機能によって求人票だけでは分からない情報を得る事が可能なので、<br>
+        看護師様自ら情報を集め、現職での問題を解決できる転職先を見つける事が可能です。
+      </p>
+    </section>
   </div>

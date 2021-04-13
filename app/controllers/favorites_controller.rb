@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.create(job_id: params[:job_id])
     FavoriteMailer.favorite_mail(@favorite).deliver
     FavoriteMailer.favorite_corporation_mail(@favorite).deliver
-    redirect_to job_path(@favorite.job), notice: "#{@favorite.job.name}の求人にエントリーしました"
+    redirect_to job_path(@favorite.job), notice: "#{@favorite.job.name}様にエントリーメールが送信されました"
   end
 
   def destroy

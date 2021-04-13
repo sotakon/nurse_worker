@@ -1,35 +1,34 @@
 <div class="job-search">
-<%= search_form_for @q do |f| %>
-  <% if user_signed_in? && current_user %>
-<%= link_to 'クチコミ投稿', new_rumor_path, class: "btn-square-pop" %>
-<% end %>
-  <%= f.search_field :name_or_area_or_content_cont, placeholder:"フリーワード検索" %>
-  <%= f.label :クチコミの時期 %>
-  <%= f.number_field :season_gteq %>〜
-  <%= f.number_field :season_lt %>年前まで
-  <%= f.submit "検索", class: "btn-square-pop" %>
-<% end %>
+  <%= search_form_for @q do |f| %>
+    <% if user_signed_in? && current_user %>
+      <%= link_to 'クチコミ投稿', new_rumor_path, class: "btn-square-pop" %>
+    <% end %>
+    <%= f.search_field :name_or_area_or_content_cont, placeholder:"フリーワード検索" %>
+    <%= f.label :働いていた時期 %>
+    <%= f.number_field :season_lt %>年まで
+    <%= f.submit "検索", class: "btn-square-pop", id: "btn" %>
+  <% end %>
 </div>
 
 <div class="card_container">
-<% @rumors.each do |rumor| %>
-  <div class="card-deck" style="width:25rem">
-    <div class="row text-center">
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <div class="card-header"><h3 class="card-title"><%= rumor.name %></h3></div>
-              <div class="card-body">
-                <h5 class="card-title">住所:<%= rumor.area %></h5>
-                <p class="card-title">時期:<%= rumor.season %>年前</p>
-                <p class="card-title"><%= rumor.content.truncate(30) %></p>
-              </div>
-              <div class="card-footer">
-                <a><%= link_to '詳細', rumor_path(rumor.id), class: "btn-square-pop" %></a>
-
-              </div>
+  <% @rumors.each do |rumor| %>
+    <div class="card-deck" style="width:25rem">
+      <div class="row text-center">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card h-100">
+            <div class="card-header", id="header-color">
+              <h3 class="card-title"><%= rumor.name %></h3></div>
+                <div class="card-body">
+                  <h5 class="card-title">住所:<%= rumor.area.truncate(10) %></h5>
+                  <p class="card-title">働いていた時期:<%= rumor.season %>年</p>
+                  <p class="card-title">クチコミ:<%= rumor.content.truncate(30) %></p>
+                </div>
+                <div class="card-footer", id="footer-color">
+                  <a><%= link_to 'クチコミを見る', rumor_path(rumor.id), class: "btn-square-pop" %></a>
+                </div>
+              </div>  
             </div>
           </div>
         </div>
-      </div>
     <% end %>
-  </div>
+</div>

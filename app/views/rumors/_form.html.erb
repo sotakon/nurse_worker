@@ -1,22 +1,22 @@
 <div class="rumor_menu">
-<%= form_with(model: @rumor, local: true, url: choose_new_or_edit) do |form| %>
-  <% if @rumor.errors.any? %>
-    <h2><%= @rumor.errors.count %>件のエラーがあります。</h2>
-    <ul>
-    <% @rumor.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+  <%= form_with(model: @rumor, local: true, url: choose_new_or_edit) do |form| %>
+    <% if @rumor.errors.any? %>
+      <h2><%= @rumor.errors.count %>件のエラーがあります。</h2>
+      <ul>
+        <% @rumor.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
     <% end %>
-    </ul>
-  <% end %>
-  <%= form.label :法人名 %><br />
-  <%= form.text_field :name %><br />
-  <%= form.label :エリア %><br />
-  <%= form.text_field :area %><br />
-  <%= form.label :働いていた時期 %><br />
-  <%= form.number_field :season %>年前<br />
-  <%= form.label :クチコミ %><br />
-  <%= form.text_area :content, value: "（例）\n労働環境:\n待遇:\nキャリアアップ:\n改善した方が良い点:" %><br />
-  <%= form.submit %>
+    <%= form.label :法人名 %><br />
+    <%= form.text_field :name %><br />
+    <%= form.label :エリア %><br />
+    <%= form.text_field :area %><br />
+    <%= form.label :働いていた時期 %><br />
+    西暦<%= form.number_field :season %>年<br />
+    <%= form.label :クチコミ %><br />
+    <%= form.text_area :content, value: "（例）\n労働環境:\n待遇:\nキャリアアップ:\n改善した方が良い点:" %><br />
+    <%= form.submit %>
   <% end %>
   <%= link_to '戻る', :back %>
-  </div>
+</div>

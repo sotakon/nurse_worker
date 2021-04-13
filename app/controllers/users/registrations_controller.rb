@@ -8,6 +8,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   super
   end
 
+  def edit
+  end
+  
+  def update
+    redirect_to user_path(current_user)
+  end
+
   protected
   def update_resource(resource, params)
     resource.update_without_password(params)

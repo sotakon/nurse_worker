@@ -17,7 +17,6 @@ class LabelsController < ApplicationController
 
   def create
     @label = Label.new(label_params)
-
     respond_to do |format|
       if @label.save
         format.html { redirect_to @label, notice: "Label was successfully created." }
@@ -49,12 +48,12 @@ class LabelsController < ApplicationController
     end
   end
 
-  private
-    def set_label
-      @label = Label.find(params[:id])
-    end
+private
+  def set_label
+    @label = Label.find(params[:id])
+  end
 
-    def label_params
-      params.require(:label).permit(:name)
-    end
+  def label_params
+    params.require(:label).permit(:name)
+  end
 end

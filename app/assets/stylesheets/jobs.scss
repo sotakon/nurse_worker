@@ -8,7 +8,7 @@
 }
 .card-body{
   width: 300px;
-  height: 130px;
+  height: 150px;
 }
 .h-100{
   width: 300px;
@@ -22,7 +22,6 @@
 .card_image{
   border-radius: 50%;
 }
-
 .card-header{
   height: 50px;
 }
@@ -33,7 +32,6 @@
   margin-left: 7rem;
   padding-top: 1rem;
 }
-
 .job-list table{
   width: 800px;
   border-collapse: collapse;
@@ -42,15 +40,12 @@
   margin-top: 5rem;
   margin-right: 1rem;
 }
-
 .job-list table tr{
   border-bottom: solid 2px white;
 }
-
 .job-list table tr:last-child{
   border-bottom: none;
 }
-
 .job-list table th{
   position: relative;
   text-align: left;
@@ -60,7 +55,6 @@
   text-align: center;
   padding: 10px 0;
 }
-
 .job-list table th:after{
   display: block;
   content: "";
@@ -73,7 +67,6 @@
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
-
 .job-list table td{
   text-align: left;
   width: 70%;
@@ -83,4 +76,21 @@
 }
 .job-btn{
   padding-top: 1rem;
+}
+.job-profile{
+  text-align: center;
+}
+.job-profile img{
+  border-radius: 50%;
+  float: left;
+  margin-left: 7rem;
+  margin-top: 6rem;
+}
+#header-color{
+  background-color: #919191;
+  color: white;
+}
+#footer-color{
+  background-color: #919191;
+  color: white;
 }
