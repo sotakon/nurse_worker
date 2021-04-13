@@ -61,7 +61,7 @@ end
     people: people,
     content: "#{subject[type]}に力を入れて患者様の診察を行っております。\n
               現在#{work[type]}の働き方にて勤務していただける方を募集しております。\n
-              #{advantages[type]}の経験がある方歓迎します。",
+              #{advantages[type]}の経験がある方歓迎します。"
   )
 end
 
@@ -73,12 +73,17 @@ end
   season = rand(2000..2020)
   type = rand(3)
   facility = ["病院", "クリニック", "老人ホーム"]
+  condition = ["給料", "スキルアップできる点", "人間関係が良い点"]
+  demerit = ["夜勤が多い", "法人内での異動が多い", "残業が多い"]
+  skill = ["多くの患者様と関わりたい", "高齢者看護がやりたい", "介護業務にも関わりたい"]
 
   Rumor.create!(
     user_id: 1,
     name: "#{name}#{facility[type]}",
     area: area,
     season: season,
-    content: "（例）\n労働環境:\n待遇:\nキャリアアップ:\n改善した方が良い点:"
+    content: "#{condition[type]}は非常に満足しておりました。\n
+              しかし#{demerit[type]}点が改善されない限り長く働くのは難しいと考え退職しました。\n
+              #{skill[type]}方にはおすすめ出来る職場です。"
   )
 end
