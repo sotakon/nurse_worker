@@ -57,9 +57,6 @@ class RumorsController < ApplicationController
       user.name = "ゲスト（看護師）"
       user.age = 22
       user.area = "ゲスト"
-      introduction = "これまで内科を中心に勤務してきました。
-                      次の職場では日勤のみの働き方にて転職を希望しております。
-                      管理者の経験をいかしてお力になりたいと考えております。"
       user.admin = true
       user.uid = SecureRandom.uuid
     end
