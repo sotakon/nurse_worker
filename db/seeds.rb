@@ -49,7 +49,7 @@ end
   area = address.kanji
   people = rand(1..3)
   type = rand(3)
-  facility = ["病院", "クリニック", "老人ホーム"]
+  facility = ["病院", "クリニック", "有料老人ホーム"]
   subject = ["内科", "外科", "精神科"]
   work = ["日勤のみ", "日勤と夜勤", "パート"]
   advantages = ["急性期看護", "高齢者看護", "管理者経験"]
@@ -72,7 +72,7 @@ end
   area = address.kanji
   season = rand(2000..2020)
   type = rand(3)
-  facility = ["病院", "クリニック", "老人ホーム"]
+  facility = ["病院", "クリニック", "有料老人ホーム"]
   condition = ["給料", "スキルアップできる点", "人間関係が良い点"]
   demerit = ["夜勤が多い", "法人内での異動が多い", "残業が多い"]
   skill = ["多くの患者様と関わりたい", "高齢者看護がやりたい", "介護業務にも関わりたい"]
