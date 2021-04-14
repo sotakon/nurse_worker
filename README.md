@@ -18,6 +18,7 @@
 * クチコミ、求人、看護師検索機能
 * 面接オファー機能
 * 求人応募機能
+* 看護師同士のフォロー機能
 * 看護師同士のDM機能
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/1ReL-VSIkckIfI1sB_vQcFoF5I_kIkvFFxnJQ3EYPPlI/edit#gid=1177389026
