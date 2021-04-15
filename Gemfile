@@ -53,6 +53,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
   gem 'dotenv-rails'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
@@ -84,6 +86,6 @@ gem 'factory_bot_rails'
 gem 'faker'
 gem 'gimei'
 gem 'fog-aws'
-gem 'dotenv-rails'
 gem 'unicorn' 
 gem 'mini_racer', platforms: :ruby
+gem "mimemagic", "~> 0.3.10"
