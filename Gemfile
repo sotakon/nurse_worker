@@ -53,12 +53,19 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
   gem 'dotenv-rails'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'webdrivers'
+  gem 'capistrano', '3.6.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
   # Easy installation and use of chromedriver to run system tests with Chrome
 end
 
@@ -69,7 +76,6 @@ gem 'devise-i18n'
 gem 'ransack'
 gem 'kaminari', '~> 0.17.0'
 gem 'carrierwave'
-gem 'mini_magick'
 gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2'
 gem 'bootstrap', '~> 4.1.1'
@@ -78,3 +84,7 @@ gem 'rspec-rails', '~> 3.8'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'gimei'
+gem 'fog-aws'
+gem 'unicorn' 
+gem 'mini_racer', platforms: :ruby
+gem 'mimemagic', '0.3.7'
