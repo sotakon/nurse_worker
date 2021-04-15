@@ -6,7 +6,7 @@ set :application, 'nurse_worker'
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/sotakon/nurse_worker'
 # deployするブランチ。デフォルトでmainを使用している場合、masterをmainに変更してください。
-set :branch, ENV['BRANCH'] || 'master'
+set :branch, ENV['BRANCH'] || 'issues/#14'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/nurse_worker'
 # シンボリックリンクをはるフォルダ・ファイル
