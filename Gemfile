@@ -59,6 +59,11 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'webdrivers'
+  gem 'capistrano', '3.6.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
   # Easy installation and use of chromedriver to run system tests with Chrome
 end
 
@@ -78,3 +83,7 @@ gem 'rspec-rails', '~> 3.8'
 gem 'factory_bot_rails'
 gem 'faker'
 gem 'gimei'
+gem 'fog-aws'
+gem 'dotenv-rails'
+gem 'unicorn' 
+gem 'mini_racer', platforms: :ruby
