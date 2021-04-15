@@ -76,7 +76,6 @@ gem 'devise-i18n'
 gem 'ransack'
 gem 'kaminari', '~> 0.17.0'
 gem 'carrierwave'
-gem 'mini_magick'
 gem 'omniauth', '1.9.1'
 gem 'omniauth-google-oauth2'
 gem 'bootstrap', '~> 4.1.1'
@@ -88,4 +87,4 @@ gem 'gimei'
 gem 'fog-aws'
 gem 'unicorn' 
 gem 'mini_racer', platforms: :ruby
-gem "mimemagic", "~> 0.3.10"
+gem 'mimemagic', '0.3.7'
