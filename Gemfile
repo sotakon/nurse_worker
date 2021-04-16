@@ -87,3 +87,4 @@ gem 'gimei'
 gem 'fog-aws'
 gem 'unicorn' 
 gem 'mini_racer', platforms: :ruby
+gem 'dotenv-rails'
