@@ -6,4 +6,3 @@ class CorporationsController < ApplicationController
     @favorite_corporation = User.find(favorites)
   end
 end
-
