@@ -87,4 +87,4 @@ gem 'gimei'
 gem 'fog-aws'
 gem 'unicorn' 
 gem 'mini_racer', platforms: :ruby
-gem 'mimemagic', '0.3.7'
+gem 'dotenv-rails'
