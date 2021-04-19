@@ -55,9 +55,9 @@ RSpec.describe 'ユーザー機能', type: :system do
       end
     end
 
-    context 'ユーザーがユーザー一覧を選択した場合' do
-      it 'ユーザー一覧が表示される' do
-        click_on 'ユーザー一覧'
+    context 'ユーザーが看護師一覧を選択した場合' do
+      it '看護師一覧が表示される' do
+        click_on '看護師一覧'
         expect(page).to have_content 'テスト2'
       end
     end
