@@ -16,7 +16,7 @@
     西暦<%= form.number_field :season %>年<br />
     <%= form.label :クチコミ %><br />
     <%= form.text_area :content, value: "（例）\n労働環境:\n待遇:\nキャリアアップ:\n改善した方が良い点:" %><br />
-    <%= form.submit %>
+    <%= form.submit "投稿する",class: "btn-square-pop" %>
   <% end %>
-  <%= link_to '戻る', :back %>
+  <%= link_to '戻る', :back, class: "btn-square-pop" %>
 </div>

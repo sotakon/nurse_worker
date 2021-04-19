@@ -23,3 +23,9 @@ ja:
         area: エリア
         email: メールアドレス
         password: パスワード
+      rumor:
+        name: 法人名
+        area: エリア
+      job:
+        name: 法人名
+        area: エリア
