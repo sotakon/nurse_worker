@@ -74,7 +74,7 @@ RSpec.describe 'ユーザー機能（法人側）', type: :system do
         click_on '登録する'
         click_on '登録する'
         visit jobs_path
-        fill_in 'q[name_or_area_or_content_cont]', with: 'テスト'
+        fill_in 'name_or_area_or_content_cont', with: 'テスト'
         click_on 'commit'
         expect(page).to have_content 'テスト'
       end
