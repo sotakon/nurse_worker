@@ -29,7 +29,7 @@
 </div>
 
 <div class="rumor-btn">
-	<% if current_user == @rumor.user %>
+	<% if current_user && current_user.admin? %>
 		<%= link_to '編集', edit_rumor_path(@rumor), class: "btn-square-pop" %>
 		<%= link_to '削除', rumor_path(@rumor.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: "btn-square-pop" %>
 	<% end %>
