@@ -33,14 +33,17 @@
     <% if current_corporation == @corporation%>
     <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label" for="TAB02-02">スカウトした看護師(<%= @favorite_corporation.count %>人)</label>
       <div class="tab-content">
-        <tr>
-          <td>
           <% @favorite_corporation.each do |f| %>
             <p><%= link_to f.name, user_path(f.id) %> | <%= link_to "削除",corporations_favorite_path(id: current_corporation.corporations_favorites.find_by(user_id: @user.ids)),method: :delete %></p>
             <% end %>
-          </td>
-        </tr>
       </div>
+
+      <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label" for="TAB02-03">エントリーがあった看護師(<%= @favorite_users.count %>)</label>
+    <div class="tab-content">
+      <% @favorite_users.each do |user| %>
+        <p><%= link_to user.name, user_path(user.id) %> | <%= link_to "削除",favorite_path(id: user.favorites.find_by(job_id: @job.ids), job_id: @job.ids),method: :delete %>
+      <%end%>
+    </div>
 <br>
 <br>
 <%= link_to 'プロフィール編集', edit_corporation_registration_path, class: "btn-square-pop" %>
