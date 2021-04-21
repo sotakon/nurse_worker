@@ -13,7 +13,7 @@
         <td><%= @job.name %></td>
       </tr>
         <th>法人名</th>
-        <td><%= @job.corporation.name %></td>
+        <td><%= link_to @job.corporation.name, corporation_path(@job.corporation.id) %></td>
       </tr>
 
       <tr>

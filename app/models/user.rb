@@ -11,7 +11,8 @@ class User < ApplicationRecord
       validates :name, presence: true
       validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 18 }
       validates :area, presence: true
-
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,:omniauthable, omniauth_providers: %i(google)
 

@@ -1,6 +1,6 @@
 <div class="corporation_profile">
-  <% if current_corporation.image? %>
-    <%= image_tag (current_corporation.image.url),width:"300px", height:"300px" %>
+  <% if @corporation.image? %>
+    <%= image_tag (@corporation.image.url),width:"300px", height:"300px" %>
   <% else %>
     <%= image_tag "default2.jpg",width:"300px" %>
   <% end %>
@@ -12,33 +12,40 @@
           <br>
           <br>
             <th>法人名</th>
-            <td><%= current_corporation.name %></td>
+            <td><%= @corporation.name %></td>
           </tr>
           <tr>
             <th>所在地</th>
-            <td><%= current_corporation.area %></td>
+            <td><%= @corporation.area %></td>
           </tr>
+          <% if current_corporation == @corporation%>
           <tr>
             <th>メールアドレス</th>
-            <td><%= current_corporation.email %></td>
+            <td><%= @corporation.email %></td>
           </tr>
+          <% end%>
           <tr>
             <th>紹介文</th>
-            <td><%= current_corporation.introduction %></td>
+            <td><%= @corporation.introduction %></td>
           </tr>
         </table>
       </div>
+    <% if current_corporation == @corporation%>
     <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label" for="TAB02-02">スカウトした看護師(<%= @favorite_corporation.count %>人)</label>
       <div class="tab-content">
-        <tr>
-          <td>
           <% @favorite_corporation.each do |f| %>
             <p><%= link_to f.name, user_path(f.id) %> | <%= link_to "削除",corporations_favorite_path(id: current_corporation.corporations_favorites.find_by(user_id: @user.ids)),method: :delete %></p>
             <% end %>
-          </td>
-        </tr>
       </div>
+
+      <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label" for="TAB02-03">エントリーがあった看護師(<%= @favorite_users.count %>)</label>
+    <div class="tab-content">
+      <% @favorite_users.each do |user| %>
+        <p><%= link_to user.name, user_path(user.id) %> | <%= link_to "削除",favorite_path(id: user.favorites.find_by(job_id: @job.ids), job_id: @job.ids),method: :delete %>
+      <%end%>
+    </div>
 <br>
 <br>
 <%= link_to 'プロフィール編集', edit_corporation_registration_path, class: "btn-square-pop" %>
+<%end%>
 <%= link_to '戻る', :back, class: "btn-square-pop" %>
