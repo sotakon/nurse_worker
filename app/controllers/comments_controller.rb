@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js { render :index }
       else
-        format.html { redirect_to rumor_path(@rumor), notice: '投稿できませんでした...' }
+        format.html { redirect_to rumor_path(@rumor), notice: '内容を入力してください' }
       end
     end
   end
