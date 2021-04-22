@@ -6,6 +6,6 @@ class Job < ApplicationRecord
   has_many :labels, through: :labellings
   validates :name, presence: true
   validates :area, presence: true
-  validates :people, presence: true
+  validates :people, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
   validates :content, presence: true
 end
