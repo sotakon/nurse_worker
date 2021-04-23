@@ -28,17 +28,10 @@ https://docs.google.com/spreadsheets/d/1GNuPO7olvLH4ZETjHRP0FG9dkQDoHv9zzIits-GN
 https://docs.google.com/spreadsheets/d/1dxk13QyICr_PggPmxPIASJSJ_9eQzy0S41w53AKNyFo/edit#gid=0
 ## 画面ワイヤーフレーム
 https://docs.google.com/spreadsheets/d/1FCHCs2at3CXkj4EIs9bKO_UpvWL00ZPAJR__R-R61oU/edit#gid=1593143460
-## 使用予定Gem
+## 使用Gem
 * devise
 * ransack
 * carrierwave
 * kaminari
 * mini_magick
 * faker
-* gimei
-## 卒業課題要件
-* 就業Term内の技術
-    * devise
-    * AWS
-* カリキュラム外の技術
-    * ransack
