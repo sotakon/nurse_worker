@@ -73,11 +73,11 @@ private
     @rumor = Rumor.find(params[:id])
   end
 
-def user_check
-  if current_user
-    rumors_path
-  else
-    redirect_to tops_path, notice: "ログインしている看護師様しか閲覧できません"
+  def user_check
+    if current_user
+      rumors_path
+    else
+      redirect_to tops_path, notice: "ログインしている看護師様しか閲覧できません"
+    end
   end
-end
 end
