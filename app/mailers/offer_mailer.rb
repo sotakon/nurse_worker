@@ -6,6 +6,6 @@ class OfferMailer < ApplicationMailer
 
   def offer_corporation_mail(favorite)
     @favorite = favorite
-    mail to: @favorite.user.email, subject: "法人様からスカウトが届きました"
+    mail to: @favorite.user.email, subject: "法人様からスカウトがありました"
   end
 end
