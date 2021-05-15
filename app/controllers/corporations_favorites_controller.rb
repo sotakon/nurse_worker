@@ -1,4 +1,5 @@
 class CorporationsFavoritesController < ApplicationController
+  
   def create
     @favorite = current_corporation.corporations_favorites.create(user_id: params[:user_id])
     OfferMailer.offer_mail(@favorite).deliver
