@@ -80,7 +80,7 @@ private
     if current_corporation
       users_path
     else
-      redirect_to tops_path, notice: "ログインしている法人様しか閲覧できません"
+      redirect_to tops_path, notice: "ログインしている法人様のみ閲覧可能です"
     end
   end
 end
